@@ -213,19 +213,18 @@ void sleepSeconds(int seconds)
 
 
 void checkForFreshEEprom(){ // reads the first Byte Address of the EEPROM and checks if the value is 255, the inital value, or 0
-	unsigned int addr = 0;
-	unsigned int ee_value;
-	ee_value = eeprom_read_byte((uint8_t*)addr);
+	uint8_t ee_value;
+	ee_value = eeprom_read_byte((uint8_t*) 0);
 	if ((0 == ee_value) || (255 == ee_value)) { // zero or 255 detected, eeprom seems to be empty
 		ee_address = 1; // if eeprom is empty start after struct counter
-		bool fresh_eeprom = true;
-		eeprom_write_byte((uint8_t*)addr, 1);
+		fresh_eeprom = true;
+		eeprom_write_byte((uint8_t*) 0, 1);
 		} else { // value between 1 and 254 detected, not empty
 		ee_address = (ee_data_size * ee_value)-(ee_data_size-1); //
 		if ((ee_address + ee_data_size) > E2END){ // calculated address bigger then eeprom, should not happen, but in case start from adress 1
 			ee_address = 1;
 		}
-		bool fresh_eeprom = false;
+		fresh_eeprom = false;
 	}
 }
 
@@ -235,7 +234,7 @@ void readEEData(){
 	//ee_data.writecounter = eeprom_read_word((uint16_t*) ee_address);
 	//ee_data.ee_temperature = eeprom_read_float((float*) (ee_address+2));
 	//ee_data.ee_humidity = eeprom_read_float((float*) (ee_address+6))
-	eeprom_read_block((void*)&localtmp, (const void*)&ee_address, sizeof(localtmp));
+	eeprom_read_block((void*)&localtmp, (const void*)ee_address, sizeof(localtmp));
 	if (fresh_eeprom) {
 		localtmp.writecounter=0;
 		localtmp.tempdrop_counter=0;
