@@ -321,11 +321,11 @@ void TempAndHum(){
 			// Could also use fabsf(float1-float2) instead of abs (int(float1 - float2))
 			dropcheck_temp = ((int)ee_data.ee_temperature) - ((int)temperature);
 			dropcheck_hum = ((int)ee_data.ee_humidity) - ((int)humidity);
-			if((abs((int) dropcheck_temp) > 10) and (abs((int)dropcheck_hum)> 10)) { // absolute difference between two measurement greater then 10 degrees? Better check again! 
+			if((dropcheck_temp > 10) and (dropcheck_hum > 10)) { // absolute difference between two measurement greater then 10 degrees? Better check again! 
 			//if((abs((int)(ee_data.ee_temperature-temperature)) > 10) and (abs((int)(ee_data.ee_humidity-humidity))> 10)) { 
 				if (temp_short_sleep < 2) { // not yet a short sleep timer set (two times we wait for correct values!)
 					temp_short_sleep++;
-					SleepTimer = TimeToSleepError; // Set sleep time for short sleep
+					SleepTimer = 2*TimeToSleepError; // Set sleep time for double short sleep (roughly 2 minutes!)
 				}
 				else { // short sleep was ordered already, but didn't change the measurement, so we think a temperature drop has really happened.
 					temp_short_sleep = 0;
