@@ -58,8 +58,13 @@ struct Data { // Sizeof should be 12 Bytes
 	uint16_t tempdrop_counter;	// used to store the registered temperatures drops of more then 10 deg!
 };
 
-#define MAXEEPROMWRITE 30000
+// I limit the writing to the cells to 30k writes, ATMEL says 100k is okay, but better be safe then sorry!
+// Lifetime for the EEPROM with a 30k write cycle would be roughly: 1023 bytes divided by 12 bytes per block = 85 blocks
+// 10 per hour x 24h x 356 days = ~86k writes a year, so roughly 3 (86k / 30k) blocks a year which gives us 28 years of lifetime (85 / 3).
+#define MAXEEPROMWRITE 30000 
 #define DHTTYPE DHT22
+
+// Here i comment out were the sensor will send its data from, this affects the sended RF values
 #define Sensor_Bath // Config Code for Sensor Bath?
 //#define Sensor_Balcony // Config Code for Sensor Balcony?
 //#define Sensor_MasterBed // Config Code for Sensor MasterBedroom?
@@ -70,13 +75,14 @@ RCSwitch mySwitch = RCSwitch();
 const int LedPin = 9;
 const int DhtPin = 3;
 const int DhtPowerPin = 4;
+//Pin on which the RF is connected
 const int EmitPin = 6;
 const int EmitPowerPin = 7;
 
 const int TimeToSleep = 600; // set time to sleep (approx) in seconds, between 10 and 13 minutes, depending on temperature of the chip
 const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 
-// SleepTimer: Time to deepsleep, adapted to error situation:
+// SleepTimer: Time to deep sleep, adapted to error situation:
 // No error during measurement: Sleep for TimeToSleep
 // Error during measurement: Sleep for TimeToSleepError!
 int SleepTimer;
@@ -246,6 +252,7 @@ void readEEData(){
 
 void writeEEData(boolean add_temp_drop){
 	unsigned int ee_value;
+	Data localtmp;
 	
 	if (add_temp_drop) { // temperature drop seen, so increase the value!
 		ee_data.tempdrop_counter++;
@@ -254,13 +261,19 @@ void writeEEData(boolean add_temp_drop){
 	
 	eeprom_update_block((const void*)&ee_data, (void*)ee_address, ee_data_size);
 	
-	if(ee_data.writecounter >= MAXEEPROMWRITE) { // the eeprom cell where the data is written to was written MACEEPROMWRITE, use the next address block
+	if(ee_data.writecounter >= MAXEEPROMWRITE) { // the eeprom cell where the data is written to was written MAXEEPROMWRITE, use the next address block
 		ee_value = eeprom_read_byte((uint8_t*) 0);
 		ee_value++;
 		eeprom_update_byte((uint8_t*)0, ee_value);
-		ee_address = (ee_data_size * ee_value)-(ee_data_size-1);
-		if ((ee_address + ee_data_size) > E2END){ // calculated address bigger then eeprom, should not happen, but in case start from adress 1
+		ee_address = (ee_data_size * ee_value)-(ee_data_size-1); // calculate the new address
+		if ((ee_address + ee_data_size) > E2END){ // calculated address bigger then eeprom, should not happen, but in case start from EEPROM address 1
 			ee_address = 1;
+		} else { // now the new block has to be nulled, because probably only FFs are present
+			localtmp.writecounter=0;
+			localtmp.tempdrop_counter=0;
+			localtmp.ee_temperature=NAN;
+			localtmp.ee_humidity=NAN;
+			eeprom_write_block((const void*)&localtmp, (void*)ee_address, ee_data_size);			
 		}
 	}
 	
@@ -284,7 +297,8 @@ void measureTempAndHum(){
 }
 
 void TempAndHum(){
-	
+	volatile int dropcheck_temp; // volatile only needed for debug reasons! without, the compiler optimized it away and the debugger can't read the fxxx value
+	volatile int dropcheck_hum;
 	//retrieving value of temperature and humidity from DHT
 	measureTempAndHum();
 	if (isnan(humidity) || isnan(temperature)) {
@@ -292,8 +306,7 @@ void TempAndHum(){
 		sendData(atol(ERRORCODE), atol(HUM));//send error code, as the same error code is used for both, only send it once
 		//sendData(atol(ERRORCODE), atol(TEMP));//send error code
 		SleepTimer = TimeToSleepError; // Set sleep time for short sleep
-		} else {
-		//if(isnan(old_humidity) || isnan(old_temperature)){
+	} else {
 		if(isnan(ee_data.ee_humidity) || isnan(ee_data.ee_temperature)){
 			sendData(int(humidity*10), atol(HUM));
 			sendData(int(temperature*10), atol(TEMP));
@@ -304,16 +317,18 @@ void TempAndHum(){
 			ee_data.ee_temperature = temperature;
 			// write to eeprom
 			writeEEData(false);
-			} else { // old values available from last measure check against huge difference in temp!
-			if((abs(ee_data.ee_temperature-temperature) > 10) and (abs(ee_data.ee_humidity-humidity)> 10)) { // absolute difference between two measurement greater then 10 degrees? Better check again!
+		} else { // old values available from last measure check against huge difference in temp!
+			// Could also use fabsf(float1-float2) instead of abs (int(float1 - float2))
+			dropcheck_temp = ((int)ee_data.ee_temperature) - ((int)temperature);
+			dropcheck_hum = ((int)ee_data.ee_humidity) - ((int)humidity);
+			if((abs((int) dropcheck_temp) > 10) and (abs((int)dropcheck_hum)> 10)) { // absolute difference between two measurement greater then 10 degrees? Better check again! 
+			//if((abs((int)(ee_data.ee_temperature-temperature)) > 10) and (abs((int)(ee_data.ee_humidity-humidity))> 10)) { 
 				if (temp_short_sleep < 2) { // not yet a short sleep timer set (two times we wait for correct values!)
 					temp_short_sleep++;
 					SleepTimer = TimeToSleepError; // Set sleep time for short sleep
 				}
 				else { // short sleep was ordered already, but didn't change the measurement, so we think a temperature drop has really happened.
 					temp_short_sleep = 0;
-					//old_humidity = humidity;
-					//old_temperature = temperature;
 					ee_data.ee_humidity = humidity;
 					ee_data.ee_temperature = temperature;
 					// write to eeprom
@@ -324,7 +339,8 @@ void TempAndHum(){
 					SleepTimer = TimeToSleep; // everything ok, so send to long sleep!
 				}
 
-				} else { // saw a difference smaller 10 deg, save humidity and temperature for later reference and send data!
+			} else { // saw a difference smaller 10 deg, save humidity and temperature for later reference and send data!
+				temp_short_sleep = 0;
 				ee_data.ee_humidity = humidity;
 				ee_data.ee_temperature = temperature;
 				writeEEData(false);
