@@ -81,6 +81,7 @@ const int EmitPowerPin = 7;
 
 const int TimeToSleep = 600; // set time to sleep (approx) in seconds, between 10 and 13 minutes, depending on temperature of the chip
 const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
+const int TimeToSleepTempDrop = 300; // Temperature drop error time to sleep, around 5 minutes
 
 // SleepTimer: Time to deep sleep, adapted to error situation:
 // No error during measurement: Sleep for TimeToSleep
@@ -325,7 +326,7 @@ void TempAndHum(){
 			//if((abs((int)(ee_data.ee_temperature-temperature)) > 10) and (abs((int)(ee_data.ee_humidity-humidity))> 10)) { 
 				if (temp_short_sleep < 2) { // not yet a short sleep timer set (two times we wait for correct values!)
 					temp_short_sleep++;
-					SleepTimer = 2*TimeToSleepError; // Set sleep time for double short sleep (roughly 2 minutes!)
+					SleepTimer = TimeToSleepTempDrop; // Set sleep time for double short sleep (roughly 2 minutes!)
 				}
 				else { // short sleep was ordered already, but didn't change the measurement, so we think a temperature drop has really happened.
 					temp_short_sleep = 0;
