@@ -38,17 +38,23 @@ SUBDIRS :=  \
 ../include/libraries/Adafruit_Unified_Sensor/ \
 ../include/libraries/DHT_sensor_library/ \
 ../include/libraries/Low-Power/ \
+../include/libraries/DHTNEW \
+../include/libraries/Dht_mysens \
 ../include/libraries/rc-switch/ \
 ../src/ \
 ../src/libraries/ \
 ../src/libraries/DHT_sensor_library/ \
 ../src/libraries/Low-Power/ \
+../src/libraries/DHTNEW \
+../src/libraries/Dht_mysens \
 ../src/libraries/rc-switch/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Sketch.cpp \
+../src/libraries/DHTNEW/dhtnew.cpp \
+../src/libraries/Dht_mysens/DHT_mysens.cpp \
 ../src/libraries/DHT_sensor_library/DHT.cpp \
 ../src/libraries/DHT_sensor_library/DHT_U.cpp \
 ../src/libraries/Low-Power/LowPower.cpp \
@@ -63,6 +69,8 @@ ASM_SRCS +=
 
 OBJS +=  \
 Sketch.o \
+src/libraries/DHTNEW/dhtnew.o \
+src/libraries/Dht_mysens/DHT_mysens.o \
 src/libraries/DHT_sensor_library/DHT.o \
 src/libraries/DHT_sensor_library/DHT_U.o \
 src/libraries/Low-Power/LowPower.o \
@@ -70,6 +78,8 @@ src/libraries/rc-switch/RCSwitch.o
 
 OBJS_AS_ARGS +=  \
 Sketch.o \
+src/libraries/DHTNEW/dhtnew.o \
+src/libraries/Dht_mysens/DHT_mysens.o \
 src/libraries/DHT_sensor_library/DHT.o \
 src/libraries/DHT_sensor_library/DHT_U.o \
 src/libraries/Low-Power/LowPower.o \
@@ -77,6 +87,8 @@ src/libraries/rc-switch/RCSwitch.o
 
 C_DEPS +=  \
 Sketch.d \
+src/libraries/DHTNEW/dhtnew.d \
+src/libraries/Dht_mysens/DHT_mysens.d \
 src/libraries/DHT_sensor_library/DHT.d \
 src/libraries/DHT_sensor_library/DHT_U.d \
 src/libraries/Low-Power/LowPower.d \
@@ -84,6 +96,8 @@ src/libraries/rc-switch/RCSwitch.d
 
 C_DEPS_AS_ARGS +=  \
 Sketch.d \
+src/libraries/DHTNEW/dhtnew.d \
+src/libraries/Dht_mysens/DHT_mysens.d \
 src/libraries/DHT_sensor_library/DHT.d \
 src/libraries/DHT_sensor_library/DHT_U.d \
 src/libraries/Low-Power/LowPower.d \
@@ -107,35 +121,49 @@ LINKER_SCRIPT_DEP+=
 ./Sketch.o: .././Sketch.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/libraries/DHTNEW/dhtnew.o: ../src/libraries/DHTNEW/dhtnew.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/libraries/Dht_mysens/DHT_mysens.o: ../src/libraries/Dht_mysens/DHT_mysens.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/libraries/DHT_sensor_library/DHT.o: ../src/libraries/DHT_sensor_library/DHT.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/libraries/DHT_sensor_library/DHT_U.o: ../src/libraries/DHT_sensor_library/DHT_U.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/libraries/Low-Power/LowPower.o: ../src/libraries/Low-Power/LowPower.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/libraries/rc-switch/RCSwitch.o: ../src/libraries/rc-switch/RCSwitch.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)G:\Develop\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=10805 -DARDUINO_AVR_LILYPAD -DARDUINO_ARCH_AVR  -I"G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"..\include\libraries\DHT_sensor_library" -I"..\include\libraries\rc-switch" -I"..\include\libraries\Low-Power" -I"..\include\libraries\Adafruit_Unified_Sensor" -I"../include/libraries/DHTNEW" -I"../include/libraries/Dht_mysens"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -w -mmcu=atmega328p -B "G:\Develop\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

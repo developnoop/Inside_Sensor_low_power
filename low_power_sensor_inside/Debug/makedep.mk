@@ -4,6 +4,10 @@
 
 Sketch.cpp
 
+src\libraries\DHTNEW\dhtnew.cpp
+
+src\libraries\Dht_mysens\DHT_mysens.cpp
+
 src\libraries\DHT_sensor_library\DHT.cpp
 
 src\libraries\DHT_sensor_library\DHT_U.cpp
