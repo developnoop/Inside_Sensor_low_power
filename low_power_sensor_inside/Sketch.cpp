@@ -81,7 +81,6 @@ const int EmitPowerPin = 7;
 
 const int TimeToSleep = 600; // set time to sleep (approx) in seconds, between 10 and 13 minutes, depending on temperature of the chip
 const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
-const int TimeToSleepTempDrop = 300; // Temperature drop error time to sleep, around 5 minutes
 
 // SleepTimer: Time to deep sleep, adapted to error situation:
 // No error during measurement: Sleep for TimeToSleep
@@ -304,7 +303,13 @@ void TempAndHum(){
 	measureTempAndHum();
 	if (isnan(humidity) || isnan(temperature)) {
 		trc("Failed to read from DHT sensor!");
-		sendData(atol(ERRORCODE), atol(HUM));//send error code, as the same error code is used for both, only send it once
+		if (temp_short_sleep > 0) { // only send error message after two erroneous measurments aka NAN or TempDrop seen! 
+			sendData(atol(ERRORCODE), atol(HUM));//send error code, as the same error code is used for both, only send it once
+			temp_short_sleep = 0;
+		}
+		else {
+			temp_short_sleep++;
+		}
 		//sendData(atol(ERRORCODE), atol(TEMP));//send error code
 		SleepTimer = TimeToSleepError; // Set sleep time for short sleep
 	} else {
@@ -324,9 +329,10 @@ void TempAndHum(){
 			dropcheck_hum = ((int)ee_data.ee_humidity) - ((int)humidity);
 			if((dropcheck_temp > 10) and (dropcheck_hum > 10)) { // absolute difference between two measurement greater then 10 degrees? Better check again! 
 			//if((abs((int)(ee_data.ee_temperature-temperature)) > 10) and (abs((int)(ee_data.ee_humidity-humidity))> 10)) { 
-				if (temp_short_sleep < 2) { // not yet a short sleep timer set (two times we wait for correct values!)
+				if (temp_short_sleep < 1) { // not yet a short sleep timer set (two times we wait for correct values!)
 					temp_short_sleep++;
-					SleepTimer = TimeToSleepTempDrop; // Set sleep time for double short sleep (roughly 2 minutes!)
+					writeEEData(true); // Write to EEPROM that we saw a tempdrop
+					SleepTimer = TimeToSleepError; // Set sleep time for double short sleep (roughly 2 minutes!)
 				}
 				else { // short sleep was ordered already, but didn't change the measurement, so we think a temperature drop has really happened.
 					temp_short_sleep = 0;
