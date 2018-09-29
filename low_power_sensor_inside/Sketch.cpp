@@ -35,8 +35,12 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#define DHT_ORG
 
+#ifdef DHT_ORG
 #include <DHT.h>
+#endif
+
 #include "LowPower.h"
 #include <RCSwitch.h>
 #include <string.h>
@@ -87,7 +91,9 @@ const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 // Error during measurement: Sleep for TimeToSleepError!
 int SleepTimer;
 
+#ifdef DHT_ORG
 DHT dht(DhtPin,DHTTYPE);
+#endif
 
 // define humidity variable to hold the final value
 float humidity = NAN; // Set the default value to non valid values.
@@ -186,7 +192,9 @@ void loop()
 	// send temp and hum
 	pinMode(DhtPowerPin,OUTPUT);
 	digitalWrite(DhtPowerPin, HIGH);
+	#ifdef DHT_ORG
 	dht.begin();
+	#endif
 	delay(100); // added to give the DHT more time to startup, did not fix spontaneous temperature drops!
 	TempAndHum();
 	digitalWrite(DhtPowerPin, LOW);
@@ -194,6 +202,11 @@ void loop()
 	digitalWrite(DhtPin, LOW); // MR for getting rid of the last 13mA
 	
 	pinMode(DhtPowerPin,INPUT);
+	
+	// send battery voltage, move for test reasons, power sourge during sending?
+//	trc("Voltage: ");
+//	trc(String(vccVoltage()));
+//	sendData(vccVoltage(), atol(VOLT));
 	
 	//deactivate the transmitter
 	mySwitch.disableTransmit();
@@ -285,8 +298,10 @@ void measureTempAndHum(){
 	int loop = 0;
 	while (loop < 5) {
 		//retrieving value of temperature and humidity from DHT
+		#ifdef DHT_ORG
 		humidity = dht.readHumidity();
 		temperature = dht.readTemperature();
+		#endif
 		if (isnan(humidity) || isnan(temperature)) { // not a number read, so do another turn!
 			loop++;
 			} else {
@@ -303,7 +318,7 @@ void TempAndHum(){
 	measureTempAndHum();
 	if (isnan(humidity) || isnan(temperature)) {
 		trc("Failed to read from DHT sensor!");
-		if (temp_short_sleep > 0) { // only send error message after two erroneous measurments aka NAN or TempDrop seen! 
+		if (temp_short_sleep > 0) { // only send error message after two erroneous measurements aka NAN or TempDrop seen! 
 			sendData(atol(ERRORCODE), atol(HUM));//send error code, as the same error code is used for both, only send it once
 			temp_short_sleep = 0;
 		}
@@ -331,7 +346,7 @@ void TempAndHum(){
 			//if((abs((int)(ee_data.ee_temperature-temperature)) > 10) and (abs((int)(ee_data.ee_humidity-humidity))> 10)) { 
 				if (temp_short_sleep < 1) { // not yet a short sleep timer set (two times we wait for correct values!)
 					temp_short_sleep++;
-					writeEEData(true); // Write to EEPROM that we saw a tempdrop
+					writeEEData(true); // Write to EEPROM that we saw a temperature drop
 					SleepTimer = TimeToSleepError; // Set sleep time for double short sleep (roughly 2 minutes!)
 				}
 				else { // short sleep was ordered already, but didn't change the measurement, so we think a temperature drop has really happened.
