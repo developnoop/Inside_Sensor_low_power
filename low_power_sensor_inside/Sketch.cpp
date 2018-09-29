@@ -35,12 +35,7 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#define DHT_ORG
-
-#ifdef DHT_ORG
 #include <DHT.h>
-#endif
-
 #include "LowPower.h"
 #include <RCSwitch.h>
 #include <string.h>
@@ -91,9 +86,7 @@ const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 // Error during measurement: Sleep for TimeToSleepError!
 int SleepTimer;
 
-#ifdef DHT_ORG
 DHT dht(DhtPin,DHTTYPE);
-#endif
 
 // define humidity variable to hold the final value
 float humidity = NAN; // Set the default value to non valid values.
@@ -192,9 +185,7 @@ void loop()
 	// send temp and hum
 	pinMode(DhtPowerPin,OUTPUT);
 	digitalWrite(DhtPowerPin, HIGH);
-	#ifdef DHT_ORG
 	dht.begin();
-	#endif
 	delay(100); // added to give the DHT more time to startup, did not fix spontaneous temperature drops!
 	TempAndHum();
 	digitalWrite(DhtPowerPin, LOW);
@@ -298,10 +289,8 @@ void measureTempAndHum(){
 	int loop = 0;
 	while (loop < 5) {
 		//retrieving value of temperature and humidity from DHT
-		#ifdef DHT_ORG
 		humidity = dht.readHumidity();
 		temperature = dht.readTemperature();
-		#endif
 		if (isnan(humidity) || isnan(temperature)) { // not a number read, so do another turn!
 			loop++;
 			} else {
