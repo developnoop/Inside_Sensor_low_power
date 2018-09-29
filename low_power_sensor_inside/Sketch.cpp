@@ -35,12 +35,11 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#define DHT_ORG
+//#define DHT_ORG // Original Arduino library with small adaption from my side
+#define DHT_NEW // library from Rob.Tillaart
+//#define DHT_MYS // library from Mysensor with adaptions
 
-#ifdef DHT_ORG
-#include <DHT.h>
-#endif
-
+#include <dhtnew.h>
 #include "LowPower.h"
 #include <RCSwitch.h>
 #include <string.h>
@@ -91,9 +90,7 @@ const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 // Error during measurement: Sleep for TimeToSleepError!
 int SleepTimer;
 
-#ifdef DHT_ORG
-DHT dht(DhtPin,DHTTYPE);
-#endif
+DHTNEW dht(DhtPin);
 
 // define humidity variable to hold the final value
 float humidity = NAN; // Set the default value to non valid values.
@@ -192,9 +189,10 @@ void loop()
 	// send temp and hum
 	pinMode(DhtPowerPin,OUTPUT);
 	digitalWrite(DhtPowerPin, HIGH);
-	#ifdef DHT_ORG
-	dht.begin();
-	#endif
+	
+	//dht.begin();
+	// no begin in this libary used anymore
+	
 	delay(100); // added to give the DHT more time to startup, did not fix spontaneous temperature drops!
 	TempAndHum();
 	digitalWrite(DhtPowerPin, LOW);
@@ -296,12 +294,28 @@ void measureTempAndHum(){
 	// This function now only measures and the handling of the values is done outside of this function.
 	delay(500);
 	int loop = 0;
+	int chk;
 	while (loop < 5) {
 		//retrieving value of temperature and humidity from DHT
-		#ifdef DHT_ORG
-		humidity = dht.readHumidity();
-		temperature = dht.readTemperature();
-		#endif
+		//humidity = dht.readHumidity();
+		//temperature = dht.readTemperature();
+		chk = dht.read();
+		switch (chk)
+		{
+			case DHTLIB_OK:
+			humidity = dht.humidity;
+			temperature = dht.temperature;
+			break;
+			case DHTLIB_ERROR_CHECKSUM:
+			loop++; // Error in checksum, read again
+			break;
+			case DHTLIB_ERROR_TIMEOUT:
+			loop++; // Timeout Error, read again
+			break;
+			default:
+			loop++; // Some unknown error, read again
+			break;
+		}
 		if (isnan(humidity) || isnan(temperature)) { // not a number read, so do another turn!
 			loop++;
 			} else {
