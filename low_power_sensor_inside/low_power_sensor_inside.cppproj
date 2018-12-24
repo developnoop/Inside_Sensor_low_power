@@ -203,6 +203,8 @@
       <Value>..\include\libraries\Adafruit_Unified_Sensor</Value>
       <Value>../include/libraries/DHTNEW</Value>
       <Value>../include/libraries/Dht_mysens</Value>
+      <Value>../include/libraries/OneWire</Value>
+      <Value>../include/libraries/DallasTemp</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -235,6 +237,8 @@
       <Value>..\include\libraries\Adafruit_Unified_Sensor</Value>
       <Value>../include/libraries/DHTNEW</Value>
       <Value>../include/libraries/Dht_mysens</Value>
+      <Value>../include/libraries/OneWire</Value>
+      <Value>../include/libraries/DallasTemp</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -269,6 +273,9 @@
     <Compile Include="include\libraries\Adafruit_Unified_Sensor\Adafruit_Sensor.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\libraries\DallasTemp\DallasTemperature.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\libraries\DHTNEW\dhtnew.h">
       <SubType>compile</SubType>
     </Compile>
@@ -284,10 +291,16 @@
     <Compile Include="include\libraries\Low-Power\LowPower.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\libraries\OneWire\OneWire.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\libraries\rc-switch\RCSwitch.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sketch.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\DallasTemp\DallasTemperature.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\libraries\DHTNEW\dhtnew.cpp">
@@ -303,6 +316,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\libraries\Low-Power\LowPower.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Onewire\OneWire.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\libraries\rc-switch\RCSwitch.cpp">
@@ -326,6 +342,8 @@
     <Folder Include="include\libraries\Low-Power\" />
     <Folder Include="include\libraries\DHTNEW" />
     <Folder Include="include\libraries\Dht_mysens" />
+    <Folder Include="include\libraries\DallasTemp" />
+    <Folder Include="include\libraries\OneWire" />
     <Folder Include="include\libraries\rc-switch\" />
     <Folder Include="src\" />
     <Folder Include="src\libraries\" />
@@ -333,6 +351,8 @@
     <Folder Include="src\libraries\Low-Power\" />
     <Folder Include="src\libraries\DHTNEW" />
     <Folder Include="src\libraries\Dht_mysens" />
+    <Folder Include="src\libraries\DallasTemp" />
+    <Folder Include="src\libraries\Onewire" />
     <Folder Include="src\libraries\rc-switch\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

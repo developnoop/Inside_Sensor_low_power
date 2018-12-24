@@ -1,17 +1,21 @@
 Archive member included to satisfy reference by file (symbol)
 
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                              src/libraries/DHT_sensor_library/DHT.o (__subsf3)
+                              src/libraries/DallasTemp/DallasTemperature.o (__subsf3)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
                               g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o) (__addsf3x)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                              src/libraries/DHT_sensor_library/DHT.o (__ltsf2)
+                              Sketch.o (__ltsf2)
+g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                              src/libraries/DallasTemp/DallasTemperature.o (__divsf3)
+g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                              g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o) (__divsf3x)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
                               Sketch.o (__fixsfsi)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                              g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o) (__fixunssfsi)
+                              src/libraries/DallasTemp/DallasTemperature.o (__fixunssfsi)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                              src/libraries/Dht_mysens/DHT_mysens.o (__floatunsisf)
+                              src/libraries/DallasTemp/DallasTemperature.o (__floatunsisf)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
                               g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o) (__fp_cmp)
 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
@@ -49,7 +53,7 @@ G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\
 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
                               src/libraries/rc-switch/RCSwitch.o (attachInterrupt)
 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                              src/libraries/DHTNEW/dhtnew.o (millis)
+                              src/libraries/DallasTemp/DallasTemperature.o (millis)
 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
                               Sketch.o (pinMode)
 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
@@ -183,6 +187,61 @@ Discarded input sections
  .bss           0x00000000        0x0 Sketch.o
  .text._Z3trc6String
                 0x00000000        0x2 Sketch.o
+ .bss.temp_short_sleep
+                0x00000000        0x1 Sketch.o
+ .data.DEVICE_2
+                0x00000000        0x8 Sketch.o
+ .bss.tempDeviceAddress
+                0x00000000        0x8 Sketch.o
+ .text          0x00000000        0x0 src/libraries/DallasTemp/DallasTemperature.o
+ .data          0x00000000        0x0 src/libraries/DallasTemp/DallasTemperature.o
+ .bss           0x00000000        0x0 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature11isConnectedEPh
+                0x00000000       0x30 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature13getResolutionEv
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature20setWaitForConversionEb
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature20getWaitForConversionEv
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature21setCheckForConversionEb
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature21getCheckForConversionEv
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature28requestTemperaturesByAddressEPh
+                0x00000000       0x96 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature26requestTemperaturesByIndexEh
+                0x00000000       0x48 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature15getTempFByIndexEh
+                0x00000000       0x1e src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature8getTempFEPh
+                0x00000000       0x1e src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature19isParasitePowerModeEv
+                0x00000000        0x6 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature16setHighAlarmTempEPhc
+                0x00000000       0x66 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature15setLowAlarmTempEPhc
+                0x00000000       0x66 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature16getHighAlarmTempEPh
+                0x00000000       0x3a src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature15getLowAlarmTempEPh
+                0x00000000       0x3a src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature16resetAlarmSearchEv
+                0x00000000       0x16 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature11alarmSearchEPh
+                0x00000000      0x112 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature8hasAlarmEPh
+                0x00000000       0x72 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature8hasAlarmEv
+                0x00000000       0x40 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature13processAlarmsEv
+                0x00000000       0x66 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature15setAlarmHandlerEPFvPhE
+                0x00000000        0x8 src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature12toFahrenheitEf
+                0x00000000       0x1a src/libraries/DallasTemp/DallasTemperature.o
+ .text._ZN17DallasTemperature9toCelsiusEf
+                0x00000000       0x1a src/libraries/DallasTemp/DallasTemperature.o
  .text          0x00000000        0x0 src/libraries/DHTNEW/dhtnew.o
  .data          0x00000000        0x0 src/libraries/DHTNEW/dhtnew.o
  .bss           0x00000000        0x0 src/libraries/DHTNEW/dhtnew.o
@@ -234,12 +293,34 @@ Discarded input sections
  .text          0x00000000        0x0 src/libraries/DHT_sensor_library/DHT.o
  .data          0x00000000        0x0 src/libraries/DHT_sensor_library/DHT.o
  .bss           0x00000000        0x0 src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHTC2Ehhh
+                0x00000000       0x42 src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHT5beginEv
+                0x00000000       0x24 src/libraries/DHT_sensor_library/DHT.o
  .text._ZN3DHT11convertCtoFEf
                 0x00000000       0x1e src/libraries/DHT_sensor_library/DHT.o
  .text._ZN3DHT11convertFtoCEf
                 0x00000000       0x1e src/libraries/DHT_sensor_library/DHT.o
  .text._ZN3DHT16computeHeatIndexEffb
                 0x00000000      0x45a src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHT11expectPulseEb
+                0x00000000       0x9c src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHT4readEb
+                0x00000000      0x1e0 src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHT15readTemperatureEbb
+                0x00000000       0xba src/libraries/DHT_sensor_library/DHT.o
+ .text._ZN3DHT12readHumidityEb
+                0x00000000       0x88 src/libraries/DHT_sensor_library/DHT.o
+ .debug_info    0x00000000      0xae8 src/libraries/DHT_sensor_library/DHT.o
+ .debug_abbrev  0x00000000      0x30f src/libraries/DHT_sensor_library/DHT.o
+ .debug_loc     0x00000000      0xbe1 src/libraries/DHT_sensor_library/DHT.o
+ .debug_aranges
+                0x00000000       0x60 src/libraries/DHT_sensor_library/DHT.o
+ .debug_ranges  0x00000000       0x68 src/libraries/DHT_sensor_library/DHT.o
+ .debug_line    0x00000000      0x4ab src/libraries/DHT_sensor_library/DHT.o
+ .debug_str     0x00000000      0x583 src/libraries/DHT_sensor_library/DHT.o
+ .comment       0x00000000       0x31 src/libraries/DHT_sensor_library/DHT.o
+ .debug_frame   0x00000000      0x1c4 src/libraries/DHT_sensor_library/DHT.o
  .group         0x00000000        0x8 src/libraries/DHT_sensor_library/DHT_U.o
  .group         0x00000000        0xc src/libraries/DHT_sensor_library/DHT_U.o
  .group         0x00000000        0xc src/libraries/DHT_sensor_library/DHT_U.o
@@ -307,6 +388,23 @@ Discarded input sections
                 0x00000000       0x94 src/libraries/Low-Power/LowPower.o
  .text._ZN13LowPowerClass15powerExtStandbyE8period_t5adc_t5bod_t8timer2_t
                 0x00000000       0xdc src/libraries/Low-Power/LowPower.o
+ .text          0x00000000        0x0 src/libraries/Onewire/OneWire.o
+ .data          0x00000000        0x0 src/libraries/Onewire/OneWire.o
+ .bss           0x00000000        0x0 src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire11write_bytesEPKhjb
+                0x00000000       0x6a src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire10read_bytesEPhj
+                0x00000000       0x34 src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire7depowerEv
+                0x00000000       0x1a src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire13target_searchEh
+                0x00000000       0x1c src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire5crc16EPKhjj
+                0x00000000       0x64 src/libraries/Onewire/OneWire.o
+ .text._ZN7OneWire11check_crc16EPKhjS1_j
+                0x00000000       0x36 src/libraries/Onewire/OneWire.o
+ .rodata._ZZN7OneWire5crc16EPKhjjE9oddparity
+                0x00000000       0x10 src/libraries/Onewire/OneWire.o
  .text          0x00000000        0x0 src/libraries/rc-switch/RCSwitch.o
  .data          0x00000000        0x0 src/libraries/rc-switch/RCSwitch.o
  .bss           0x00000000        0x0 src/libraries/rc-switch/RCSwitch.o
@@ -388,8 +486,12 @@ Discarded input sections
  .text          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
  .data          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
  .bss           0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
- .text.avr-libc.fplib
-                0x00000000        0xa g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+ .text          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+ .data          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+ .bss           0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+ .text          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+ .data          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+ .bss           0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
  .text          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
  .data          0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
  .bss           0x00000000        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
@@ -1042,11 +1144,13 @@ Linker script and memory map
 Address of section .data set to 0x800100
 LOAD g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
 LOAD Sketch.o
+LOAD src/libraries/DallasTemp/DallasTemperature.o
 LOAD src/libraries/DHTNEW/dhtnew.o
 LOAD src/libraries/Dht_mysens/DHT_mysens.o
 LOAD src/libraries/DHT_sensor_library/DHT.o
 LOAD src/libraries/DHT_sensor_library/DHT_U.o
 LOAD src/libraries/Low-Power/LowPower.o
+LOAD src/libraries/Onewire/OneWire.o
 LOAD src/libraries/rc-switch/RCSwitch.o
 START GROUP
 LOAD g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
@@ -1158,7 +1262,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x247a
+.text           0x00000000     0x2d30
  *(.vectors)
  .vectors       0x00000000       0x68 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -1174,389 +1278,478 @@ END GROUP
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
+ .progmem.data._ZL11dscrc_table
+                0x00000068      0x100 src/libraries/Onewire/OneWire.o
  .progmem.data._ZL5proto
-                0x00000068       0x36 src/libraries/rc-switch/RCSwitch.o
+                0x00000168       0x36 src/libraries/rc-switch/RCSwitch.o
  .progmem.data.digital_pin_to_timer_PGM
-                0x0000009e       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x0000009e                digital_pin_to_timer_PGM
+                0x0000019e       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x0000019e                digital_pin_to_timer_PGM
  .progmem.data.digital_pin_to_bit_mask_PGM
-                0x000000b2       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000000b2                digital_pin_to_bit_mask_PGM
+                0x000001b2       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000001b2                digital_pin_to_bit_mask_PGM
  .progmem.data.digital_pin_to_port_PGM
-                0x000000c6       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000000c6                digital_pin_to_port_PGM
+                0x000001c6       0x14 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000001c6                digital_pin_to_port_PGM
  .progmem.data.port_to_input_PGM
-                0x000000da        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000000da                port_to_input_PGM
+                0x000001da        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000001da                port_to_input_PGM
  .progmem.data.port_to_output_PGM
-                0x000000e4        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000000e4                port_to_output_PGM
+                0x000001e4        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000001e4                port_to_output_PGM
  .progmem.data.port_to_mode_PGM
-                0x000000ee        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000000ee                port_to_mode_PGM
-                0x000000f8                . = ALIGN (0x2)
+                0x000001ee        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000001ee                port_to_mode_PGM
+                0x000001f8                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000f8                __ctors_start = .
+                0x000001f8                __ctors_start = .
  *(.ctors)
- .ctors         0x000000f8        0x2 Sketch.o
-                0x000000fa                __ctors_end = .
-                0x000000fa                __dtors_start = .
+ .ctors         0x000001f8        0x2 Sketch.o
+                0x000001fa                __ctors_end = .
+                0x000001fa                __dtors_start = .
  *(.dtors)
-                0x000000fa                __dtors_end = .
+                0x000001fa                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000fa        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
-                0x000000fa                __init
+ .init0         0x000001fa        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                0x000001fa                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000fa        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .init2         0x000001fa        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000106       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                0x00000106                __do_copy_data
- .init4         0x0000011c       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                0x0000011c                __do_clear_bss
+ .init4         0x00000206       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                0x00000206                __do_copy_data
+ .init4         0x0000021c       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                0x0000021c                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
  *(.init6)
- .init6         0x0000012c       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_ctors.o)
-                0x0000012c                __do_global_ctors
+ .init6         0x0000022c       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_ctors.o)
+                0x0000022c                __do_global_ctors
  *(.init6)
  *(.init7)
  *(.init7)
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000142        0x8 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .init9         0x00000242        0x8 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
  *(.init9)
  *(.text)
- .text          0x0000014a        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
-                0x0000014a                __vector_22
-                0x0000014a                __vector_24
-                0x0000014a                __vector_12
-                0x0000014a                __bad_interrupt
-                0x0000014a                __vector_3
-                0x0000014a                __vector_23
-                0x0000014a                __vector_25
-                0x0000014a                __vector_11
-                0x0000014a                __vector_13
-                0x0000014a                __vector_17
-                0x0000014a                __vector_19
-                0x0000014a                __vector_7
-                0x0000014a                __vector_5
-                0x0000014a                __vector_4
-                0x0000014a                __vector_9
-                0x0000014a                __vector_21
-                0x0000014a                __vector_15
-                0x0000014a                __vector_8
-                0x0000014a                __vector_14
-                0x0000014a                __vector_10
-                0x0000014a                __vector_18
-                0x0000014a                __vector_20
-                0x0000014e                . = ALIGN (0x2)
+ .text          0x0000024a        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                0x0000024a                __vector_22
+                0x0000024a                __vector_24
+                0x0000024a                __vector_12
+                0x0000024a                __bad_interrupt
+                0x0000024a                __vector_3
+                0x0000024a                __vector_23
+                0x0000024a                __vector_25
+                0x0000024a                __vector_11
+                0x0000024a                __vector_13
+                0x0000024a                __vector_17
+                0x0000024a                __vector_19
+                0x0000024a                __vector_7
+                0x0000024a                __vector_5
+                0x0000024a                __vector_4
+                0x0000024a                __vector_9
+                0x0000024a                __vector_21
+                0x0000024a                __vector_15
+                0x0000024a                __vector_8
+                0x0000024a                __vector_14
+                0x0000024a                __vector_10
+                0x0000024a                __vector_18
+                0x0000024a                __vector_20
+                0x0000024e                . = ALIGN (0x2)
  *(.text.*)
- .text.setup    0x0000014e       0x9e Sketch.o
-                0x0000014e                setup
+ .text.setup    0x0000024e       0xae Sketch.o
+                0x0000024e                setup
  .text._Z12sleepSecondsi
-                0x000001ec       0x40 Sketch.o
-                0x000001ec                _Z12sleepSecondsi
+                0x000002fc       0x40 Sketch.o
+                0x000002fc                _Z12sleepSecondsi
  .text._Z19checkForFreshEEpromv
-                0x0000022c       0x38 Sketch.o
-                0x0000022c                _Z19checkForFreshEEpromv
+                0x0000033c       0x38 Sketch.o
+                0x0000033c                _Z19checkForFreshEEpromv
  .text._Z10readEEDatav
-                0x00000264       0x76 Sketch.o
-                0x00000264                _Z10readEEDatav
+                0x00000374       0x76 Sketch.o
+                0x00000374                _Z10readEEDatav
  .text._Z11writeEEDatab
-                0x000002da       0xce Sketch.o
-                0x000002da                _Z11writeEEDatab
- .text._Z17measureTempAndHumv
-                0x000003a8       0xa0 Sketch.o
-                0x000003a8                _Z17measureTempAndHumv
+                0x000003ea       0xce Sketch.o
+                0x000003ea                _Z11writeEEDatab
  .text._Z8sendDatall
-                0x00000448      0x104 Sketch.o
-                0x00000448                _Z8sendDatall
- .text._Z10TempAndHumv
-                0x0000054c      0x346 Sketch.o
-                0x0000054c                _Z10TempAndHumv
+                0x000004b8      0x108 Sketch.o
+                0x000004b8                _Z8sendDatall
+ .text._Z20prepare_onewire_datav
+                0x000005c0      0x2e0 Sketch.o
+                0x000005c0                _Z20prepare_onewire_datav
+ .text._Z12loop_onewirev
+                0x000008a0       0xbe Sketch.o
+                0x000008a0                _Z12loop_onewirev
  .text._Z10vccVoltagev
-                0x00000892       0x52 Sketch.o
-                0x00000892                _Z10vccVoltagev
- .text.loop     0x000008e4      0x132 Sketch.o
-                0x000008e4                loop
+                0x0000095e       0x52 Sketch.o
+                0x0000095e                _Z10vccVoltagev
+ .text.loop     0x000009b0       0xee Sketch.o
+                0x000009b0                loop
  .text.startup._GLOBAL__sub_I_mySwitch
-                0x00000a16       0x16 Sketch.o
- .text._ZN3DHTC2Ehhh
-                0x00000a2c       0x42 src/libraries/DHT_sensor_library/DHT.o
-                0x00000a2c                _ZN3DHTC1Ehhh
-                0x00000a2c                _ZN3DHTC2Ehhh
- .text._ZN3DHT5beginEv
-                0x00000a6e       0x24 src/libraries/DHT_sensor_library/DHT.o
-                0x00000a6e                _ZN3DHT5beginEv
- .text._ZN3DHT11expectPulseEb
-                0x00000a92       0x9c src/libraries/DHT_sensor_library/DHT.o
-                0x00000a92                _ZN3DHT11expectPulseEb
- .text._ZN3DHT4readEb
-                0x00000b2e      0x1e0 src/libraries/DHT_sensor_library/DHT.o
-                0x00000b2e                _ZN3DHT4readEb
- .text._ZN3DHT15readTemperatureEbb
-                0x00000d0e       0xba src/libraries/DHT_sensor_library/DHT.o
-                0x00000d0e                _ZN3DHT15readTemperatureEbb
- .text._ZN3DHT12readHumidityEb
-                0x00000dc8       0x88 src/libraries/DHT_sensor_library/DHT.o
-                0x00000dc8                _ZN3DHT12readHumidityEb
+                0x00000a9e       0x1e Sketch.o
+ .text._ZN17DallasTemperature19defaultAlarmHandlerEPh
+                0x00000abc        0x2 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000abc                _ZN17DallasTemperature19defaultAlarmHandlerEPh
+ .text._ZN17DallasTemperatureC2EP7OneWire
+                0x00000abe       0x1e src/libraries/DallasTemp/DallasTemperature.o
+                0x00000abe                _ZN17DallasTemperatureC1EP7OneWire
+                0x00000abe                _ZN17DallasTemperatureC2EP7OneWire
+ .text._ZN17DallasTemperature14getDeviceCountEv
+                0x00000adc        0x6 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000adc                _ZN17DallasTemperature14getDeviceCountEv
+ .text._ZN17DallasTemperature12validAddressEPh
+                0x00000ae2       0x1e src/libraries/DallasTemp/DallasTemperature.o
+                0x00000ae2                _ZN17DallasTemperature12validAddressEPh
+ .text._ZN17DallasTemperature10getAddressEPhh
+                0x00000b00       0x54 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000b00                _ZN17DallasTemperature10getAddressEPhh
+ .text._ZN17DallasTemperature14readScratchPadEPhS0_
+                0x00000b54       0xb0 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000b54                _ZN17DallasTemperature14readScratchPadEPhS0_
+ .text._ZN17DallasTemperature11isConnectedEPhS0_
+                0x00000c04       0x22 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000c04                _ZN17DallasTemperature11isConnectedEPhS0_
+ .text._ZN17DallasTemperature15writeScratchPadEPhPKh
+                0x00000c26       0x9c src/libraries/DallasTemp/DallasTemperature.o
+                0x00000c26                _ZN17DallasTemperature15writeScratchPadEPhPKh
+ .text._ZN17DallasTemperature15readPowerSupplyEPh
+                0x00000cc2       0x4c src/libraries/DallasTemp/DallasTemperature.o
+                0x00000cc2                _ZN17DallasTemperature15readPowerSupplyEPh
+ .text._ZN17DallasTemperature13setResolutionEPhh
+                0x00000d0e       0x8e src/libraries/DallasTemp/DallasTemperature.o
+                0x00000d0e                _ZN17DallasTemperature13setResolutionEPhh
+ .text._ZN17DallasTemperature13setResolutionEh
+                0x00000d9c       0x80 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000d9c                _ZN17DallasTemperature13setResolutionEh
+ .text._ZN17DallasTemperature13getResolutionEPh
+                0x00000e1c       0x6c src/libraries/DallasTemp/DallasTemperature.o
+                0x00000e1c                _ZN17DallasTemperature13getResolutionEPh
+ .text._ZN17DallasTemperature5beginEv
+                0x00000e88       0xd0 src/libraries/DallasTemp/DallasTemperature.o
+                0x00000e88                _ZN17DallasTemperature5beginEv
+ .text._ZN17DallasTemperature21isConversionAvailableEPh
+                0x00000f58       0x3a src/libraries/DallasTemp/DallasTemperature.o
+                0x00000f58                _ZN17DallasTemperature21isConversionAvailableEPh
+ .text._ZN17DallasTemperature27blockTillConversionCompleteEPhS0_
+                0x00000f92       0x9e src/libraries/DallasTemp/DallasTemperature.o
+                0x00000f92                _ZN17DallasTemperature27blockTillConversionCompleteEPhS0_
+ .text._ZN17DallasTemperature19requestTemperaturesEv
+                0x00001030       0x42 src/libraries/DallasTemp/DallasTemperature.o
+                0x00001030                _ZN17DallasTemperature19requestTemperaturesEv
+ .text._ZN17DallasTemperature20calculateTemperatureEPhS0_
+                0x00001072      0x156 src/libraries/DallasTemp/DallasTemperature.o
+                0x00001072                _ZN17DallasTemperature20calculateTemperatureEPhS0_
+ .text._ZN17DallasTemperature8getTempCEPh
+                0x000011c8       0x60 src/libraries/DallasTemp/DallasTemperature.o
+                0x000011c8                _ZN17DallasTemperature8getTempCEPh
+ .text._ZN17DallasTemperature15getTempCByIndexEh
+                0x00001228       0x48 src/libraries/DallasTemp/DallasTemperature.o
+                0x00001228                _ZN17DallasTemperature15getTempCByIndexEh
  .text._ZN13LowPowerClass9powerDownE8period_t5adc_t5bod_t
-                0x00000e50       0x94 src/libraries/Low-Power/LowPower.o
-                0x00000e50                _ZN13LowPowerClass9powerDownE8period_t5adc_t5bod_t
+                0x00001270       0x94 src/libraries/Low-Power/LowPower.o
+                0x00001270                _ZN13LowPowerClass9powerDownE8period_t5adc_t5bod_t
  .text.__vector_6
-                0x00000ee4       0x2e src/libraries/Low-Power/LowPower.o
-                0x00000ee4                __vector_6
+                0x00001304       0x2e src/libraries/Low-Power/LowPower.o
+                0x00001304                __vector_6
+ .text._ZN7OneWire5resetEv
+                0x00001332       0x7e src/libraries/Onewire/OneWire.o
+                0x00001332                _ZN7OneWire5resetEv
+ .text._ZN7OneWire9write_bitEh
+                0x000013b0       0x66 src/libraries/Onewire/OneWire.o
+                0x000013b0                _ZN7OneWire9write_bitEh
+ .text._ZN7OneWire8read_bitEv
+                0x00001416       0x56 src/libraries/Onewire/OneWire.o
+                0x00001416                _ZN7OneWire8read_bitEv
+ .text._ZN7OneWire5writeEhh
+                0x0000146c       0x68 src/libraries/Onewire/OneWire.o
+                0x0000146c                _ZN7OneWire5writeEhh
+ .text._ZN7OneWire4readEv
+                0x000014d4       0x38 src/libraries/Onewire/OneWire.o
+                0x000014d4                _ZN7OneWire4readEv
+ .text._ZN7OneWire6selectEPKh
+                0x0000150c       0x3e src/libraries/Onewire/OneWire.o
+                0x0000150c                _ZN7OneWire6selectEPKh
+ .text._ZN7OneWire4skipEv
+                0x0000154a        0x8 src/libraries/Onewire/OneWire.o
+                0x0000154a                _ZN7OneWire4skipEv
+ .text._ZN7OneWire12reset_searchEv
+                0x00001552       0x18 src/libraries/Onewire/OneWire.o
+                0x00001552                _ZN7OneWire12reset_searchEv
+ .text._ZN7OneWireC2Eh
+                0x0000156a       0x46 src/libraries/Onewire/OneWire.o
+                0x0000156a                _ZN7OneWireC1Eh
+                0x0000156a                _ZN7OneWireC2Eh
+ .text._ZN7OneWire6searchEPh
+                0x000015b0      0x110 src/libraries/Onewire/OneWire.o
+                0x000015b0                _ZN7OneWire6searchEPh
+ .text._ZN7OneWire4crc8EPKhh
+                0x000016c0       0x1a src/libraries/Onewire/OneWire.o
+                0x000016c0                _ZN7OneWire4crc8EPKhh
  .text._ZN8RCSwitch11setProtocolEi
-                0x00000f12       0x30 src/libraries/rc-switch/RCSwitch.o
-                0x00000f12                _ZN8RCSwitch11setProtocolEi
+                0x000016da       0x30 src/libraries/rc-switch/RCSwitch.o
+                0x000016da                _ZN8RCSwitch11setProtocolEi
  .text._ZN8RCSwitchC2Ev
-                0x00000f42       0x4e src/libraries/rc-switch/RCSwitch.o
-                0x00000f42                _ZN8RCSwitchC2Ev
-                0x00000f42                _ZN8RCSwitchC1Ev
+                0x0000170a       0x4e src/libraries/rc-switch/RCSwitch.o
+                0x0000170a                _ZN8RCSwitchC2Ev
+                0x0000170a                _ZN8RCSwitchC1Ev
  .text._ZN8RCSwitch17setRepeatTransmitEi
-                0x00000f90        0x8 src/libraries/rc-switch/RCSwitch.o
-                0x00000f90                _ZN8RCSwitch17setRepeatTransmitEi
+                0x00001758        0x8 src/libraries/rc-switch/RCSwitch.o
+                0x00001758                _ZN8RCSwitch17setRepeatTransmitEi
  .text._ZN8RCSwitch14enableTransmitEi
-                0x00000f98        0xe src/libraries/rc-switch/RCSwitch.o
-                0x00000f98                _ZN8RCSwitch14enableTransmitEi
+                0x00001760        0xe src/libraries/rc-switch/RCSwitch.o
+                0x00001760                _ZN8RCSwitch14enableTransmitEi
  .text._ZN8RCSwitch15disableTransmitEv
-                0x00000fa6        0xc src/libraries/rc-switch/RCSwitch.o
-                0x00000fa6                _ZN8RCSwitch15disableTransmitEv
+                0x0000176e        0xc src/libraries/rc-switch/RCSwitch.o
+                0x0000176e                _ZN8RCSwitch15disableTransmitEv
  .text._ZN8RCSwitch8transmitENS_7HighLowE
-                0x00000fb2       0x60 src/libraries/rc-switch/RCSwitch.o
-                0x00000fb2                _ZN8RCSwitch8transmitENS_7HighLowE
+                0x0000177a       0x60 src/libraries/rc-switch/RCSwitch.o
+                0x0000177a                _ZN8RCSwitch8transmitENS_7HighLowE
  .text._ZN8RCSwitch13enableReceiveEv
-                0x00001012       0x34 src/libraries/rc-switch/RCSwitch.o
-                0x00001012                _ZN8RCSwitch13enableReceiveEv
+                0x000017da       0x34 src/libraries/rc-switch/RCSwitch.o
+                0x000017da                _ZN8RCSwitch13enableReceiveEv
  .text._ZN8RCSwitch14disableReceiveEv
-                0x00001046       0x1a src/libraries/rc-switch/RCSwitch.o
-                0x00001046                _ZN8RCSwitch14disableReceiveEv
+                0x0000180e       0x1a src/libraries/rc-switch/RCSwitch.o
+                0x0000180e                _ZN8RCSwitch14disableReceiveEv
  .text._ZN8RCSwitch4sendEmj
-                0x00001060      0x112 src/libraries/rc-switch/RCSwitch.o
-                0x00001060                _ZN8RCSwitch4sendEmj
+                0x00001828      0x112 src/libraries/rc-switch/RCSwitch.o
+                0x00001828                _ZN8RCSwitch4sendEmj
  .text._ZN8RCSwitch15receiveProtocolEij
-                0x00001172      0x1d8 src/libraries/rc-switch/RCSwitch.o
-                0x00001172                _ZN8RCSwitch15receiveProtocolEij
+                0x0000193a      0x1d8 src/libraries/rc-switch/RCSwitch.o
+                0x0000193a                _ZN8RCSwitch15receiveProtocolEij
  .text._ZN8RCSwitch15handleInterruptEv
-                0x0000134a       0xf6 src/libraries/rc-switch/RCSwitch.o
-                0x0000134a                _ZN8RCSwitch15handleInterruptEv
+                0x00001b12       0xf6 src/libraries/rc-switch/RCSwitch.o
+                0x00001b12                _ZN8RCSwitch15handleInterruptEv
  .text.avr-libc.fplib
-                0x00001440        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00001440                __subsf3
-                0x00001442                __addsf3
+                0x00001c08        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x00001c08                __subsf3
+                0x00001c0a                __addsf3
  .text.avr-libc.fplib
-                0x0000144e       0xcc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00001470                __addsf3x
+                0x00001c16       0xcc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00001c38                __addsf3x
  .text.avr-libc.fplib
-                0x0000151a        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x0000151a                __fixsfsi
+                0x00001ce2        0xa g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+                0x00001ce2                __nesf2
+                0x00001ce2                __eqsf2
+                0x00001ce2                __cmpsf2
+                0x00001ce2                __ltsf2
+                0x00001ce2                __lesf2
  .text.avr-libc.fplib
-                0x00001528       0x5e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x00001528                __fixunssfsi
+                0x00001cec        0x8 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00001cec                __divsf3
  .text.avr-libc.fplib
-                0x00001586       0x7a g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00001586                __floatunsisf
-                0x0000158a                __floatsisf
+                0x00001cf4       0xdc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x00001d14                __divsf3x
+                0x00001d1a                __divsf3_pse
  .text.avr-libc.fplib
-                0x00001600       0x48 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
-                0x00001600                __fp_cmp
+                0x00001dd0        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x00001dd0                __fixsfsi
  .text.avr-libc.fplib
-                0x00001648        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00001648                __fp_inf
+                0x00001dde       0x5e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00001dde                __fixunssfsi
  .text.avr-libc.fplib
-                0x00001654        0x6 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00001654                __fp_nan
+                0x00001e3c       0x7a g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00001e3c                __floatunsisf
+                0x00001e40                __floatsisf
  .text.avr-libc.fplib
-                0x0000165a        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x0000165a                __fp_pscA
+                0x00001eb6       0x48 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
+                0x00001eb6                __fp_cmp
  .text.avr-libc.fplib
-                0x00001668        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00001668                __fp_pscB
+                0x00001efe        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00001efe                __fp_inf
  .text.avr-libc.fplib
-                0x00001676       0x22 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00001676                __fp_round
+                0x00001f0a        0x6 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00001f0a                __fp_nan
  .text.avr-libc.fplib
-                0x00001698       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x00001698                __fp_split3
-                0x000016a8                __fp_splitA
+                0x00001f10        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00001f10                __fp_pscA
  .text.avr-libc.fplib
-                0x000016dc        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x000016dc                __fp_zero
-                0x000016de                __fp_szero
+                0x00001f1e        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00001f1e                __fp_pscB
  .text.avr-libc.fplib
-                0x000016ea        0x8 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x000016ea                __mulsf3
+                0x00001f2c       0x22 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00001f2c                __fp_round
  .text.avr-libc.fplib
-                0x000016f2       0xd2 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x00001710                __mulsf3x
-                0x00001716                __mulsf3_pse
+                0x00001f4e       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00001f4e                __fp_split3
+                0x00001f5e                __fp_splitA
  .text.avr-libc.fplib
-                0x000017c4        0xa g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(unordsf2.o)
-                0x000017c4                __unordsf2
+                0x00001f92        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x00001f92                __fp_zero
+                0x00001f94                __fp_szero
+ .text.avr-libc.fplib
+                0x00001fa0        0x8 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x00001fa0                __mulsf3
+ .text.avr-libc.fplib
+                0x00001fa8       0xd2 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00001fc6                __mulsf3x
+                0x00001fcc                __mulsf3_pse
+ .text.avr-libc.fplib
+                0x0000207a        0xa g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(unordsf2.o)
+                0x0000207a                __unordsf2
  .text.initVariant
-                0x000017ce        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x000017ce                initVariant
+                0x00002084        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00002084                initVariant
  .text.startup.main
-                0x000017d0       0x1e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x000017d0                main
- .text.nothing  0x000017ee        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x00002086       0x1e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00002086                main
+ .text.nothing  0x000020a4        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
  .text.attachInterrupt
-                0x000017f0       0x40 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
-                0x000017f0                attachInterrupt
+                0x000020a6       0x40 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x000020a6                attachInterrupt
  .text.detachInterrupt
-                0x00001830       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
-                0x00001830                detachInterrupt
+                0x000020e6       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x000020e6                detachInterrupt
  .text.__vector_1
-                0x00001854       0x4e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
-                0x00001854                __vector_1
+                0x0000210a       0x4e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x0000210a                __vector_1
  .text.__vector_2
-                0x000018a2       0x4e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
-                0x000018a2                __vector_2
+                0x00002158       0x4e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x00002158                __vector_2
  .text.__vector_16
-                0x000018f0       0x94 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x000018f0                __vector_16
- .text.millis   0x00001984       0x18 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001984                millis
- .text.micros   0x0000199c       0x4a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0000199c                micros
- .text.delay    0x000019e6       0x78 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x000019e6                delay
+                0x000021a6       0x94 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x000021a6                __vector_16
+ .text.millis   0x0000223a       0x18 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x0000223a                millis
+ .text.micros   0x00002252       0x4a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00002252                micros
+ .text.delay    0x0000229c       0x78 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x0000229c                delay
  .text.delayMicroseconds
-                0x00001a5e       0x12 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001a5e                delayMicroseconds
- .text.init     0x00001a70       0x76 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001a70                init
+                0x00002314       0x12 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00002314                delayMicroseconds
+ .text.init     0x00002326       0x76 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00002326                init
  .text.turnOffPWM
-                0x00001ae6       0x52 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .text.pinMode  0x00001b38       0x78 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x00001b38                pinMode
+                0x0000239c       0x52 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .text.pinMode  0x000023ee       0x78 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000023ee                pinMode
  .text.digitalWrite
-                0x00001bb0       0x5e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x00001bb0                digitalWrite
+                0x00002466       0x5e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00002466                digitalWrite
  .text._ZN6StringD2Ev
-                0x00001c0e        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001c0e                _ZN6StringD2Ev
-                0x00001c0e                _ZN6StringD1Ev
+                0x000024c4        0xa G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000024c4                _ZN6StringD2Ev
+                0x000024c4                _ZN6StringD1Ev
  .text._ZN6String10invalidateEv
-                0x00001c18       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001c18                _ZN6String10invalidateEv
+                0x000024ce       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000024ce                _ZN6String10invalidateEv
  .text._ZN6String12changeBufferEj
-                0x00001c3c       0x34 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001c3c                _ZN6String12changeBufferEj
+                0x000024f2       0x34 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000024f2                _ZN6String12changeBufferEj
  .text._ZN6String7reserveEj
-                0x00001c70       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001c70                _ZN6String7reserveEj
+                0x00002526       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x00002526                _ZN6String7reserveEj
  .text._ZN6String4copyEPKcj
-                0x00001ca8       0x42 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001ca8                _ZN6String4copyEPKcj
+                0x0000255e       0x42 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x0000255e                _ZN6String4copyEPKcj
  .text._ZN6StringC2EPKc
-                0x00001cea       0x2a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001cea                _ZN6StringC2EPKc
-                0x00001cea                _ZN6StringC1EPKc
+                0x000025a0       0x2a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000025a0                _ZN6StringC2EPKc
+                0x000025a0                _ZN6StringC1EPKc
  .text._ZN6StringaSEPKc
-                0x00001d14       0x2e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001d14                _ZN6StringaSEPKc
+                0x000025ca       0x2e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000025ca                _ZN6StringaSEPKc
  .text._ZN6StringC2Elh
-                0x00001d42       0x5a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
-                0x00001d42                _ZN6StringC2Elh
-                0x00001d42                _ZN6StringC1Elh
- .text.__empty  0x00001d9c        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
-                0x00001d9c                yield
+                0x000025f8       0x5a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000025f8                _ZN6StringC2Elh
+                0x000025f8                _ZN6StringC1Elh
+ .text.__empty  0x00002652        0x2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+                0x00002652                yield
  .text.libgcc.div
-                0x00001d9e       0x28 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001d9e                __udivmodhi4
+                0x00002654       0x28 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00002654                __udivmodhi4
  .text.libgcc.div
-                0x00001dc6       0x2e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x00001dc6                __divmodsi4
+                0x0000267c       0x2e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x0000267c                __divmodsi4
  .text.libgcc.div
-                0x00001df4       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x00001df4                __negsi2
+                0x000026aa       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x000026aa                __negsi2
  .text.libgcc.div
-                0x00001e04       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001e04                __udivmodsi4
- .text.libgcc   0x00001e48        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00001e48                __tablejump2__
+                0x000026ba       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x000026ba                __udivmodsi4
+ .text.libgcc   0x000026fe        0xc g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x000026fe                __tablejump2__
  .text.avr-libc
-                0x00001e54      0x242 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00001e54                malloc
-                0x00001f84                free
+                0x0000270a      0x242 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x0000270a                malloc
+                0x0000283a                free
  .text.avr-libc
-                0x00002096      0x18c g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(realloc.o)
-                0x00002096                realloc
+                0x0000294c      0x18c g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(realloc.o)
+                0x0000294c                realloc
  .text.avr-libc
-                0x00002222       0x4e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atol.o)
-                0x00002222                atol
+                0x00002ad8       0x4e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atol.o)
+                0x00002ad8                atol
  .text.avr-libc
-                0x00002270       0x12 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
-                0x00002270                memcpy_P
+                0x00002b26       0x12 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+                0x00002b26                memcpy_P
  .text.avr-libc
-                0x00002282       0x12 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x00002282                memcpy
+                0x00002b38       0x12 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00002b38                memcpy
  .text.avr-libc
-                0x00002294        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x00002294                strcpy
+                0x00002b4a        0xe g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x00002b4a                strcpy
  .text.avr-libc
-                0x000022a2       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ltoa.o)
-                0x000022a2                ltoa
-                0x000022a2                __ltoa
+                0x00002b58       0x16 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ltoa.o)
+                0x00002b58                ltoa
+                0x00002b58                __ltoa
  .text.avr-libc
-                0x000022b8       0x1e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ltoa_ncheck.o)
-                0x000022b8                __ltoa_ncheck
+                0x00002b6e       0x1e g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ltoa_ncheck.o)
+                0x00002b6e                __ltoa_ncheck
  .text.avr-libc
-                0x000022d6       0x2a g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(mulsi10.o)
-                0x000022d6                __mulsi_const_10
+                0x00002b8c       0x2a g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(mulsi10.o)
+                0x00002b8c                __mulsi_const_10
  .text.avr-libc
-                0x00002300       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_ncheck.o)
-                0x00002300                __ultoa_ncheck
-                0x00002302                __ultoa_common
+                0x00002bb6       0x44 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_ncheck.o)
+                0x00002bb6                __ultoa_ncheck
+                0x00002bb8                __ultoa_common
  .text.avr-libc
-                0x00002344       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00002344                strrev
+                0x00002bfa       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00002bfa                strrev
  .text.avr-libc
-                0x00002364       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eerd_block.o)
-                0x00002364                eeprom_read_block
-                0x00002368                eeprom_read_blraw
+                0x00002c1a       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eerd_block.o)
+                0x00002c1a                eeprom_read_block
+                0x00002c1e                eeprom_read_blraw
  .text.avr-libc
-                0x00002384       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eerd_byte.o)
-                0x00002384                eeprom_read_byte
+                0x00002c3a       0x10 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eerd_byte.o)
+                0x00002c3a                eeprom_read_byte
  .text.avr-libc
-                0x00002394       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eeupd_block.o)
-                0x00002394                eeprom_update_block
+                0x00002c4a       0x20 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eeupd_block.o)
+                0x00002c4a                eeprom_update_block
  .text.avr-libc
-                0x000023b4       0x24 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eeupd_byte.o)
-                0x000023b4                eeprom_update_byte
-                0x000023b6                eeprom_update_r18
+                0x00002c6a       0x24 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eeupd_byte.o)
+                0x00002c6a                eeprom_update_byte
+                0x00002c6c                eeprom_update_r18
  .text.avr-libc
-                0x000023d8       0x14 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eewr_block.o)
-                0x000023d8                eeprom_write_block
+                0x00002c8e       0x14 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eewr_block.o)
+                0x00002c8e                eeprom_write_block
  .text.avr-libc
-                0x000023ec       0x1c g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eewr_byte.o)
-                0x000023ec                eeprom_write_byte
-                0x000023ee                eeprom_write_r18
+                0x00002ca2       0x1c g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libatmega328p.a(eewr_byte.o)
+                0x00002ca2                eeprom_write_byte
+                0x00002ca4                eeprom_write_r18
  .text.libgcc.prologue
-                0x00002408       0x38 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00002408                __prologue_saves__
+                0x00002cbe       0x38 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00002cbe                __prologue_saves__
  .text.libgcc.prologue
-                0x00002440       0x36 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00002440                __epilogue_restores__
-                0x00002476                . = ALIGN (0x2)
+                0x00002cf6       0x36 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00002cf6                __epilogue_restores__
+                0x00002d2c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002476        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00002476                _exit
-                0x00002476                exit
+ .fini9         0x00002d2c        0x0 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00002d2c                _exit
+                0x00002d2c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1575,11 +1768,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002476        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00002d2c        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000247a                _etext = .
+                0x00002d30                _etext = .
 
-.data           0x00800100       0x90 load address 0x0000247a
+.data           0x00800100       0xbc load address 0x00002d30
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x6 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
@@ -1599,85 +1792,92 @@ END GROUP
  .data.humidity
                 0x0080010c        0x4 Sketch.o
                 0x0080010c                humidity
+ .data.DEVICE_1
+                0x00800110        0x8 Sketch.o
+                0x00800110                DEVICE_1
+ .data.DEVICE_0
+                0x00800118        0x8 Sketch.o
+                0x00800118                DEVICE_0
  .data._ZN8RCSwitch17nReceiveToleranceE
-                0x00800110        0x2 src/libraries/rc-switch/RCSwitch.o
-                0x00800110                _ZN8RCSwitch17nReceiveToleranceE
- .data.intFunc  0x00800112        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x00800120        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x00800120                _ZN8RCSwitch17nReceiveToleranceE
+ .data.intFunc  0x00800122        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800116       0x79 Sketch.o
+                0x00800126       0x96 Sketch.o
  *(.gnu.linkonce.r*)
-                0x00800190                . = ALIGN (0x2)
- *fill*         0x0080018f        0x1 
-                0x00800190                _edata = .
-                0x00800190                PROVIDE (__data_end, .)
+                0x008001bc                . = ALIGN (0x2)
+                0x008001bc                _edata = .
+                0x008001bc                PROVIDE (__data_end, .)
 
-.bss            0x00800190       0xd7
-                0x00800190                PROVIDE (__bss_start, .)
+.bss            0x008001bc       0xe7
+                0x008001bc                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.ee_data_size
-                0x00800190        0x1 Sketch.o
-                0x00800190                ee_data_size
- .bss.ee_data   0x00800191        0xc Sketch.o
-                0x00800191                ee_data
- .bss.temp_short_sleep
-                0x0080019d        0x1 Sketch.o
-                0x0080019d                temp_short_sleep
- .bss.dht       0x0080019e       0x12 Sketch.o
-                0x0080019e                dht
+                0x008001bc        0x1 Sketch.o
+                0x008001bc                ee_data_size
+ .bss.ee_data   0x008001bd        0xc Sketch.o
+                0x008001bd                ee_data
+ .bss.sensors   0x008001c9       0x13 Sketch.o
+                0x008001c9                sensors
+ .bss.oneWire   0x008001dc        0xe Sketch.o
+                0x008001dc                oneWire
+ .bss.numberOfDevices
+                0x008001ea        0x2 Sketch.o
+                0x008001ea                numberOfDevices
  .bss.SleepTimer
-                0x008001b0        0x2 Sketch.o
-                0x008001b0                SleepTimer
- .bss.mySwitch  0x008001b2        0xf Sketch.o
-                0x008001b2                mySwitch
- .bss.LowPower  0x008001c1        0x1 src/libraries/Low-Power/LowPower.o
-                0x008001c1                LowPower
+                0x008001ec        0x2 Sketch.o
+                0x008001ec                SleepTimer
+ .bss.mySwitch  0x008001ee        0xf Sketch.o
+                0x008001ee                mySwitch
+ .bss.LowPower  0x008001fd        0x1 src/libraries/Low-Power/LowPower.o
+                0x008001fd                LowPower
  .bss._ZZN8RCSwitch15handleInterruptEvE11changeCount
-                0x008001c2        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x008001fe        0x2 src/libraries/rc-switch/RCSwitch.o
  .bss._ZZN8RCSwitch15handleInterruptEvE11repeatCount
-                0x008001c4        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x00800200        0x2 src/libraries/rc-switch/RCSwitch.o
  .bss._ZZN8RCSwitch15handleInterruptEvE8lastTime
-                0x008001c6        0x4 src/libraries/rc-switch/RCSwitch.o
+                0x00800202        0x4 src/libraries/rc-switch/RCSwitch.o
  .bss._ZN8RCSwitch7timingsE
-                0x008001ca       0x86 src/libraries/rc-switch/RCSwitch.o
-                0x008001ca                _ZN8RCSwitch7timingsE
+                0x00800206       0x86 src/libraries/rc-switch/RCSwitch.o
+                0x00800206                _ZN8RCSwitch7timingsE
  .bss._ZN8RCSwitch17nReceivedProtocolE
-                0x00800250        0x2 src/libraries/rc-switch/RCSwitch.o
-                0x00800250                _ZN8RCSwitch17nReceivedProtocolE
+                0x0080028c        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x0080028c                _ZN8RCSwitch17nReceivedProtocolE
  .bss._ZN8RCSwitch14nReceivedDelayE
-                0x00800252        0x2 src/libraries/rc-switch/RCSwitch.o
-                0x00800252                _ZN8RCSwitch14nReceivedDelayE
+                0x0080028e        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x0080028e                _ZN8RCSwitch14nReceivedDelayE
  .bss._ZN8RCSwitch18nReceivedBitlengthE
-                0x00800254        0x2 src/libraries/rc-switch/RCSwitch.o
-                0x00800254                _ZN8RCSwitch18nReceivedBitlengthE
+                0x00800290        0x2 src/libraries/rc-switch/RCSwitch.o
+                0x00800290                _ZN8RCSwitch18nReceivedBitlengthE
  .bss._ZN8RCSwitch14nReceivedValueE
-                0x00800256        0x4 src/libraries/rc-switch/RCSwitch.o
-                0x00800256                _ZN8RCSwitch14nReceivedValueE
+                0x00800292        0x4 src/libraries/rc-switch/RCSwitch.o
+                0x00800292                _ZN8RCSwitch14nReceivedValueE
  .bss.timer0_fract
-                0x0080025a        0x1 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00800296        0x1 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
  .bss.timer0_millis
-                0x0080025b        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0080025b                timer0_millis
+                0x00800297        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00800297                timer0_millis
  .bss.timer0_overflow_count
-                0x0080025f        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0080025f                timer0_overflow_count
+                0x0080029b        0x4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x0080029b                timer0_overflow_count
  *(COMMON)
- COMMON         0x00800263        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00800263                __brkval
-                0x00800265                __flp
-                0x00800267                PROVIDE (__bss_end, .)
-                0x0000247a                __data_load_start = LOADADDR (.data)
-                0x0000250a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080029f        0x4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x0080029f                __brkval
+                0x008002a1                __flp
+                0x008002a3                PROVIDE (__bss_end, .)
+                0x00002d30                __data_load_start = LOADADDR (.data)
+                0x00002dec                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800267        0x0
+.noinit         0x008002a3        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800267                _end = .
-                0x00800267                PROVIDE (__heap_start, .)
+                0x008002a3                _end = .
+                0x008002a3                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1720,8 +1920,9 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 Sketch.o
                                  0x31 (size before relaxing)
- .comment       0x00000030       0x31 src/libraries/DHT_sensor_library/DHT.o
+ .comment       0x00000030       0x31 src/libraries/DallasTemp/DallasTemperature.o
  .comment       0x00000030       0x31 src/libraries/Low-Power/LowPower.o
+ .comment       0x00000030       0x31 src/libraries/Onewire/OneWire.o
  .comment       0x00000030       0x31 src/libraries/rc-switch/RCSwitch.o
  .comment       0x00000030       0x31 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
  .comment       0x00000030       0x31 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
@@ -1752,121 +1953,130 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x640
+.debug_aranges  0x00000000      0x7e8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x78 Sketch.o
  .debug_aranges
-                0x00000078       0x60 src/libraries/DHT_sensor_library/DHT.o
+                0x00000078      0x168 src/libraries/DallasTemp/DallasTemperature.o
  .debug_aranges
-                0x000000d8       0x50 src/libraries/Low-Power/LowPower.o
+                0x000001e0       0x50 src/libraries/Low-Power/LowPower.o
  .debug_aranges
-                0x00000128      0x150 src/libraries/rc-switch/RCSwitch.o
+                0x00000230       0xa0 src/libraries/Onewire/OneWire.o
  .debug_aranges
-                0x00000278       0x30 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x000002d0      0x150 src/libraries/rc-switch/RCSwitch.o
  .debug_aranges
-                0x000002a8       0x40 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+                0x00000420       0x30 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
  .debug_aranges
-                0x000002e8       0x48 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00000450       0x40 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
  .debug_aranges
-                0x00000330       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00000490       0x48 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
  .debug_aranges
-                0x00000368      0x2b8 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                0x000004d8       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
  .debug_aranges
-                0x00000620       0x20 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+                0x00000510      0x2b8 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_aranges
+                0x000007c8       0x20 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xb0c8
+.debug_info     0x00000000     0xdea9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_info    0x000005f4     0x2b1e Sketch.o
- .debug_info    0x00003112      0xae8 src/libraries/DHT_sensor_library/DHT.o
- .debug_info    0x00003bfa      0x81f src/libraries/Low-Power/LowPower.o
- .debug_info    0x00004419     0x1c1d src/libraries/rc-switch/RCSwitch.o
- .debug_info    0x00006036      0x237 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_info    0x0000626d      0x21c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_info    0x00006489      0x2cb G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x00006754      0x5fe G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x00006d52     0x4338 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
- .debug_info    0x0000b08a       0x3e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x000005f4     0x33ef Sketch.o
+ .debug_info    0x000039e3     0x2143 src/libraries/DallasTemp/DallasTemperature.o
+ .debug_info    0x00005b26      0x81f src/libraries/Low-Power/LowPower.o
+ .debug_info    0x00006345      0xeb5 src/libraries/Onewire/OneWire.o
+ .debug_info    0x000071fa     0x1c1d src/libraries/rc-switch/RCSwitch.o
+ .debug_info    0x00008e17      0x237 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x0000904e      0x21c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_info    0x0000926a      0x2cb G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x00009535      0x5fe G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x00009b33     0x4338 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_info    0x0000de6b       0x3e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_abbrev   0x00000000     0x1e58
+.debug_abbrev   0x00000000     0x22cb
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x56a Sketch.o
- .debug_abbrev  0x00000b0c      0x30f src/libraries/DHT_sensor_library/DHT.o
- .debug_abbrev  0x00000e1b      0x24c src/libraries/Low-Power/LowPower.o
- .debug_abbrev  0x00001067      0x43b src/libraries/rc-switch/RCSwitch.o
- .debug_abbrev  0x000014a2      0x12d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_abbrev  0x000015cf       0xfc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_abbrev  0x000016cb      0x146 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_abbrev  0x00001811      0x15b G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_abbrev  0x0000196c      0x4c2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
- .debug_abbrev  0x00001e2e       0x2a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_abbrev  0x000005a2      0x54e Sketch.o
+ .debug_abbrev  0x00000af0      0x456 src/libraries/DallasTemp/DallasTemperature.o
+ .debug_abbrev  0x00000f46      0x24c src/libraries/Low-Power/LowPower.o
+ .debug_abbrev  0x00001192      0x348 src/libraries/Onewire/OneWire.o
+ .debug_abbrev  0x000014da      0x43b src/libraries/rc-switch/RCSwitch.o
+ .debug_abbrev  0x00001915      0x12d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_abbrev  0x00001a42       0xfc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_abbrev  0x00001b3e      0x146 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_abbrev  0x00001c84      0x15b G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_abbrev  0x00001ddf      0x4c2 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_abbrev  0x000022a1       0x2a G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_line     0x00000000     0x3870
+.debug_line     0x00000000     0x44c7
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0x1a g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_line    0x0000001a      0x6d7 Sketch.o
- .debug_line    0x000006f1      0x4ab src/libraries/DHT_sensor_library/DHT.o
- .debug_line    0x00000b9c      0x606 src/libraries/Low-Power/LowPower.o
- .debug_line    0x000011a2      0xb9b src/libraries/rc-switch/RCSwitch.o
- .debug_line    0x00001d3d      0x159 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_line    0x00001e96      0x194 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_line    0x0000202a      0x28e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x000022b8      0x246 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x000024fe     0x1331 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
- .debug_line    0x0000382f       0x41 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x0000001a      0x6d3 Sketch.o
+ .debug_line    0x000006ed      0xa5d src/libraries/DallasTemp/DallasTemperature.o
+ .debug_line    0x0000114a      0x606 src/libraries/Low-Power/LowPower.o
+ .debug_line    0x00001750      0x6a9 src/libraries/Onewire/OneWire.o
+ .debug_line    0x00001df9      0xb9b src/libraries/rc-switch/RCSwitch.o
+ .debug_line    0x00002994      0x159 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00002aed      0x194 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_line    0x00002c81      0x28e G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x00002f0f      0x246 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x00003155     0x1331 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_line    0x00004486       0x41 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_frame    0x00000000     0x1620
+.debug_frame    0x00000000     0x1c68
  *(.debug_frame)
- .debug_frame   0x00000000      0x204 Sketch.o
- .debug_frame   0x00000204      0x1c4 src/libraries/DHT_sensor_library/DHT.o
- .debug_frame   0x000003c8       0xcc src/libraries/Low-Power/LowPower.o
- .debug_frame   0x00000494      0x480 src/libraries/rc-switch/RCSwitch.o
- .debug_frame   0x00000914       0x54 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_frame   0x00000968       0xf4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_frame   0x00000a5c       0xc4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_frame   0x00000b20       0x7c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_frame   0x00000b9c      0xa60 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
- .debug_frame   0x000015fc       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_frame   0x00000000      0x1d0 Sketch.o
+ .debug_frame   0x000001d0      0x5e8 src/libraries/DallasTemp/DallasTemperature.o
+ .debug_frame   0x000007b8       0xcc src/libraries/Low-Power/LowPower.o
+ .debug_frame   0x00000884      0x258 src/libraries/Onewire/OneWire.o
+ .debug_frame   0x00000adc      0x480 src/libraries/rc-switch/RCSwitch.o
+ .debug_frame   0x00000f5c       0x54 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_frame   0x00000fb0       0xf4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_frame   0x000010a4       0xc4 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_frame   0x00001168       0x7c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_frame   0x000011e4      0xa60 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_frame   0x00001c44       0x24 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_str      0x00000000     0x2972
+.debug_str      0x00000000     0x3620
  *(.debug_str)
  .debug_str     0x00000000      0x208 g:/develop/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_str     0x00000208     0x1c10 Sketch.o
-                               0x1d12 (size before relaxing)
- .debug_str     0x00001e18      0x149 src/libraries/DHT_sensor_library/DHT.o
-                                0x583 (size before relaxing)
- .debug_str     0x00001f61       0x8a src/libraries/Low-Power/LowPower.o
+ .debug_str     0x00000208     0x27a1 Sketch.o
+                               0x28d0 (size before relaxing)
+ .debug_str     0x000029a9      0x10b src/libraries/DallasTemp/DallasTemperature.o
+                               0x1089 (size before relaxing)
+ .debug_str     0x00002ab4       0x8a src/libraries/Low-Power/LowPower.o
                                 0x62c (size before relaxing)
- .debug_str     0x00001feb      0x29e src/libraries/rc-switch/RCSwitch.o
+ .debug_str     0x00002b3e      0x14f src/libraries/Onewire/OneWire.o
+                                0x662 (size before relaxing)
+ .debug_str     0x00002c8d      0x29e src/libraries/rc-switch/RCSwitch.o
                                 0xc45 (size before relaxing)
- .debug_str     0x00002289       0xbc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_str     0x00002f2b       0xbc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
                                 0x2c1 (size before relaxing)
- .debug_str     0x00002345      0x13b G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_str     0x00002fe7      0x13b G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
                                 0x244 (size before relaxing)
- .debug_str     0x00002480       0x66 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_str     0x00003122       0x69 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
                                 0x257 (size before relaxing)
- .debug_str     0x000024e6       0x77 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_str     0x0000318b       0x7c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
                                 0x2bc (size before relaxing)
- .debug_str     0x0000255d      0x3f9 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_str     0x00003207      0x3fd G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
                                0x11a2 (size before relaxing)
- .debug_str     0x00002956       0x1c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_str     0x00003604       0x1c G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
                                 0x14c (size before relaxing)
 
-.debug_loc      0x00000000     0x7f52
+.debug_loc      0x00000000     0xa1da
  *(.debug_loc)
- .debug_loc     0x00000000      0x617 Sketch.o
- .debug_loc     0x00000617      0xbe1 src/libraries/DHT_sensor_library/DHT.o
- .debug_loc     0x000011f8      0x5a3 src/libraries/Low-Power/LowPower.o
- .debug_loc     0x0000179b     0x1acc src/libraries/rc-switch/RCSwitch.o
- .debug_loc     0x00003267      0x235 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_loc     0x0000349c      0x28d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_loc     0x00003729      0x5fc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_loc     0x00003d25     0x422d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_loc     0x00000000      0x55e Sketch.o
+ .debug_loc     0x0000055e     0x1ead src/libraries/DallasTemp/DallasTemperature.o
+ .debug_loc     0x0000240b      0x5a3 src/libraries/Low-Power/LowPower.o
+ .debug_loc     0x000029ae     0x1075 src/libraries/Onewire/OneWire.o
+ .debug_loc     0x00003a23     0x1acc src/libraries/rc-switch/RCSwitch.o
+ .debug_loc     0x000054ef      0x235 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_loc     0x00005724      0x28d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_loc     0x000059b1      0x5fc G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_loc     0x00005fad     0x422d G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1886,18 +2096,19 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x650
+.debug_ranges   0x00000000      0x7f0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x68 Sketch.o
- .debug_ranges  0x00000068       0x68 src/libraries/DHT_sensor_library/DHT.o
- .debug_ranges  0x000000d0       0x40 src/libraries/Low-Power/LowPower.o
- .debug_ranges  0x00000110      0x188 src/libraries/rc-switch/RCSwitch.o
- .debug_ranges  0x00000298       0x20 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_ranges  0x000002b8       0x30 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
- .debug_ranges  0x000002e8       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_ranges  0x00000320       0x28 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_ranges  0x00000348      0x2f8 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
- .debug_ranges  0x00000640       0x10 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_ranges  0x00000068      0x178 src/libraries/DallasTemp/DallasTemperature.o
+ .debug_ranges  0x000001e0       0x40 src/libraries/Low-Power/LowPower.o
+ .debug_ranges  0x00000220       0x90 src/libraries/Onewire/OneWire.o
+ .debug_ranges  0x000002b0      0x188 src/libraries/rc-switch/RCSwitch.o
+ .debug_ranges  0x00000438       0x20 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_ranges  0x00000458       0x30 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WInterrupts.o)
+ .debug_ranges  0x00000488       0x38 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_ranges  0x000004c0       0x28 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_ranges  0x000004e8      0x2f8 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_ranges  0x000007e0       0x10 G:\Develop\Atmel\Code\328P_DHT22_433_inside_sensor\328P_DHT22_433_inside_sensor\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
 .debug_macro
  *(.debug_macro)
