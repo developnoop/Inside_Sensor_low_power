@@ -1,4 +1,9 @@
-Sketch.d Sketch.o: .././Sketch.cpp \
+src/libraries/Onewire/OneWire.d src/libraries/Onewire/OneWire.o: \
+ ../src/libraries/Onewire/OneWire.cpp \
+ ../include/libraries/OneWire/OneWire.h \
+ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
+ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
@@ -6,9 +11,6 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
- g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\iom328p.h \
@@ -33,11 +35,15 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
- ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
- ../include/libraries/OneWire/OneWire.h \
- ../include/libraries/DallasTemp/DallasTemperature.h \
- ..\include\libraries\Low-Power/LowPower.h \
- ..\include\libraries\rc-switch/RCSwitch.h
+ ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h
+
+../include/libraries/OneWire/OneWire.h:
+
+g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+
+g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+
+g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -52,12 +58,6 @@ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string
 g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
-
-g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
-
-g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
-
-g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
 g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -108,11 +108,3 @@ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\d
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
-
-../include/libraries/OneWire/OneWire.h:
-
-../include/libraries/DallasTemp/DallasTemperature.h:
-
-..\include\libraries\Low-Power/LowPower.h:
-
-..\include\libraries\rc-switch/RCSwitch.h:
