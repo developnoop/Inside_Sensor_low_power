@@ -37,21 +37,8 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
  - added the possibility to use ds8b20 instead of dht22
 */
 
-//#define DHT_ORG // Original Arduino library with small adaption from my side
-//#define DHT_NEW // library from Rob.Tillaart
-//#define DHT_MYS // library from Mysensor with adaptions
-
-#define DS18B20_use     1 // 1 = used, 0 = unused; if sensor DS18B20 is used (only temperature values!!)
-#define DHT22_use       0 // 1 = used, 0 = unused; if sensor DHT22 is used (temperature and humidity)
-
-#if DHT22_use == 1   // DHT22 sensor used in project
-#include <dhtnew.h>
-#endif
-
-#if DS18B20_use == 1   // DS18B20 used in project
-#include <OneWire.h>
-#include <DallasTemperature.h>
-#endif
+// Important: All needed config has to be done in the ConfigData.h! Look there first!
+#include <ConfigData.h> // here all Config Switches are located
 
 #include "LowPower.h"
 #include <RCSwitch.h>
@@ -73,37 +60,8 @@ struct Data { // Sizeof should be 12 Bytes
 	float ee_humidity;			// used to store the humidity in eeprom
 	uint16_t tempdrop_counter;	// used to store the registered temperatures drops of more then 10 deg!
 };
-
-// I limit the writing to the cells to 30k writes, ATMEL says 100k is okay, but better be safe then sorry!
-// Lifetime for the EEPROM with a 30k write cycle would be roughly: 1023 bytes divided by 12 bytes per block = 85 blocks
-// 10 per hour x 24h x 356 days = ~86k writes a year, so roughly 3 (86k / 30k) blocks a year which gives us 28 years of lifetime (85 / 3).
-#define MAXEEPROMWRITE 30000 
-#define DHTTYPE DHT22
-
-// Here i comment out were the sensor will send its data from, this affects the sended RF values
-//#define Sensor_Bath // Config Code for Sensor Bath?
-//#define Sensor_Balcony // Config Code for Sensor Balcony?
-//#define Sensor_MasterBed // Config Code for Sensor MasterBedroom?
-#define Sensor_Pond // Config Code for Sensor Pond?
-
+// create the RF Switch, needed for sending values
 RCSwitch mySwitch = RCSwitch();
-
-//Pin on which the sensors are connected; Arduino Pin number, not ATMEGA328 Pin number!!
-const int LedPin = 9;
-
-#if DHT22_use == 1
-const int SensorPin = 3;
-const int SensorPowerPin = 4;
-#elif DS18B20_use == 1
-const int SensorPin = 3;
-const int SensorPowerPin = 4;
-#endif
-//Pin on which the RF is connected
-const int EmitPin = 6;
-const int EmitPowerPin = 7;
-
-const int TimeToSleep = 600; // set time to sleep (approx) in seconds, between 10 and 13 minutes, depending on temperature of the chip
-const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 
 // SleepTimer: Time to deep sleep, adapted to error situation:
 // No error during measurement: Sleep for TimeToSleep
@@ -111,19 +69,12 @@ const int TimeToSleepError = 60; // short error time to sleep, around 1 minute
 int SleepTimer;
 
 #if DHT22_use == 1
-DHTNEW dht(SensorPin);
+DHTNEW dht(SensorPin); // Setup a DHT sensor with data expected on pin SensorPin
 #endif
 
 #if DS18B20_use == 1
-#define TEMPERATURE_PRECISION 12
-int numberOfDevices; // Number of temperature devices found (onewire aka ds18b20)
-DeviceAddress tempDeviceAddress; // We'll use this variable to store a found device address
 OneWire oneWire(SensorPin); // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
 DallasTemperature sensors(&oneWire); // Pass our oneWire reference to Dallas Temperature.
-
-DeviceAddress DEVICE_0 = {0x28, 0x07, 0x1C, 0x43, 0x98, 0x0B, 0x00, 0x80};
-DeviceAddress DEVICE_1 = {0x28, 0xFF, 0x04, 0x0A, 0xC1, 0x17, 0x01, 0x68};
-DeviceAddress DEVICE_2 = {0x28, 0x07, 0x00, 0x07, 0x55, 0xBB, 0x01, 0x2C};
 #endif
 
 // define humidity variable to hold the final value
@@ -139,57 +90,8 @@ uint8_t ee_data_size;
 //Do we want to see trace for debugging purposes
 #define TRACE 0  // 0= trace off 1 = trace on
 
-/*These values define the RF code value sent if the sensor values are
-equals to 0, for example, if the sensor value of temperature is 24Â°C, the
-program is going to send 33240, this resulting value can be interpreted
-either at gateway level or better at domotic software level (example openhab)*/
-// MR: As the values can reach 4 numbers (100.0 for 100% humidity shift to 4 Numbers!
-#define MIN_ERRORCODE  "999900"
-#ifdef Sensor_Bath
-// Bath Sensor Values
-#define HUM   "110000" // DHT 22 measures from 0.0 to 100.0
-#define TEMP  "130400" // the DHT 22 Sensor give temp from -40.0 to 80.0
-#define VOLT  "150000"
-// changed to sensor specific ERRORCODE like 9999XY where x stands for the corresponding board 0-9 and Y stands for the sensor on the board from 0-9
-// in this way the board itself could send info if only the temperature sensor is not working or if a pressure sensor is not working and so on.
-#define ERRORCODE  "999901"  // First Board (0Y) and First Sensor (X1)
-#endif
-#ifdef Sensor_Balcony
-// Balcony Sensor Values
-#define HUM   "210000" // DHT 22 measures from 0.0 to 100.0
-#define TEMP  "230400" // the DHT 22 Sensor give temp from -40.0 to 80.0
-#define VOLT  "250000"
-// changed to sensor specific ERRORCODE like 9999XY where x stands for the corresponding board 0-9 and Y stands for the sensor on the board from 0-9
-// in this way the board itself could send info if only the temperature sensor is not working or if a pressure sensor is not working and so on.
-// Balcony Error Code
-#define ERRORCODE  "999911"  // Second Board (1Y) and First Sensor (X1)
-#endif
-#ifdef Sensor_MasterBed
-// Master Bedroom Sensor Values
-#define HUM   "310000" // DHT 22 measures from 0.0 to 100.0
-#define TEMP  "330400" // the DHT 22 Sensor give temp from -40.0 to 80.0
-#define VOLT  "350000"
-// changed to sensor specific ERRORCODE like 9999XY where x stands for the corresponding board 0-9 and Y stands for the sensor on the board from 0-9
-// in this way the board itself could send info if only the temperature sensor is not working or if a pressure sensor is not working and so on.
-#define ERRORCODE  "999921"  // Third Board (2Y) and First Sensor (X1)
-#endif
-#ifdef Sensor_Pond
-// Pond Sensor Values
-#define TEMP2 "410550" // the DS18B20 Sensor give temp from -55.0 to 125.0
-#define TEMP  "430550" // the DS18B20 Sensor give temp from -55.0 to 125.0
-#define VOLT  "450000"
-// changed to sensor specific ERRORCODE like 9999XY where x stands for the corresponding board 0-9 and Y stands for the sensor on the board from 0-9
-// in this way the board itself could send info if only the temperature sensor is not working or if a pressure sensor is not working and so on.
-#define ERRORCODE  "999931"  // Fourth Board (3Y) and First Sensor (X1)
-#define ERRORCODE2  "999932"  // Fourth Board (3Y) and Second Sensor (X2)
-#endif
-
-
-
 void setup()
 {
-	uint8_t acme = 100;
-	
 	// WRITE ALL PINS AS INPUT LOW UNTIL NEEDED - DEFAULT STARTING STATE - ALLOWS LOW POWER SLEEP - PIN STATES CHANGED LOCALLY AS REQUIRED - MUST WRITE BACK TO INPUT LOW BEFORE SLEEP!
 	for (byte i = 0; i <= A5; i++){
 		pinMode (i, INPUT);    // changed as per below
@@ -233,9 +135,6 @@ void loop_dht22() // DHT22 only part of loop
 	pinMode(SensorPowerPin,OUTPUT);
 	digitalWrite(SensorPowerPin, HIGH);
 	
-	//dht.begin();
-	// no begin in this library used anymore
-	
 	delay(100); // added to give the DHT more time to startup, did not fix spontaneous temperature drops!
 	TempAndHum_DHT22();
 	digitalWrite(SensorPowerPin, LOW);
@@ -249,9 +148,6 @@ void loop_dht22() // DHT22 only part of loop
 #if DS18B20_use == 1
 void loop_onewire()  // DS18B20 only part of loop
 {
-	//pinMode(SensorPowerPin,OUTPUT);
-	//digitalWrite(SensorPowerPin, HIGH);
-	
 	//delay(750); // 750 ms needed for temperature calculations!
 	delay(1);
 	
@@ -381,9 +277,6 @@ void checkForFreshEEprom(){ // reads the first Byte Address of the EEPROM and ch
 void readEEData(){
 	Data localtmp;
 	checkForFreshEEprom(); // always test for empty eeprom and recalculate read and write address!
-	//ee_data.writecounter = eeprom_read_word((uint16_t*) ee_address);
-	//ee_data.ee_temperature = eeprom_read_float((float*) (ee_address+2));
-	//ee_data.ee_humidity = eeprom_read_float((float*) (ee_address+6))
 	eeprom_read_block((void*)&localtmp, (const void*)ee_address, sizeof(localtmp));
 	if (fresh_eeprom) {
 		localtmp.writecounter=0;
@@ -431,9 +324,6 @@ void measureTempAndHum_DHT22(){  // only for DHT22 usage!
 	int loop = 0;
 	int chk;
 	while (loop < 5) {
-		//retrieving value of temperature and humidity from DHT
-		//humidity = dht.readHumidity();
-		//temperature = dht.readTemperature();
 		chk = dht.read();
 		switch (chk)
 		{
