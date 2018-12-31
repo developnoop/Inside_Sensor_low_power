@@ -34,6 +34,7 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
+ ../include/libraries/ConfigData/ConfigData.h \
  ../include/libraries/OneWire/OneWire.h \
  ../include/libraries/DallasTemp/DallasTemperature.h \
  ..\include\libraries\Low-Power/LowPower.h \
@@ -108,6 +109,8 @@ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\d
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
+
+../include/libraries/ConfigData/ConfigData.h:
 
 ../include/libraries/OneWire/OneWire.h:
 

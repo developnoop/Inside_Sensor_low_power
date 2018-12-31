@@ -108,9 +108,6 @@ void setup()
 	
 	#if DS18B20_use == 1
 	pinMode(SensorPowerPin,INPUT);
-	
-	pinMode(SensorPowerPin,OUTPUT); // set the powerpin of the sensor to output
-	digitalWrite(SensorPowerPin, HIGH); // give the powerpin 3.3 V
 	#endif
 	
 	pinMode(EmitPowerPin,INPUT);
@@ -148,8 +145,10 @@ void loop_dht22() // DHT22 only part of loop
 #if DS18B20_use == 1
 void loop_onewire()  // DS18B20 only part of loop
 {
-	//delay(750); // 750 ms needed for temperature calculations!
-	delay(1);
+	pinMode(SensorPowerPin,OUTPUT); // set the powerpin of the sensor to output
+	digitalWrite(SensorPowerPin, HIGH); // give the powerpin 3.3 V
+	delay(750); // 750 ms needed for temperature calculations!
+	//delay(1);
 	
 	sensors.begin(); //start up temp sensor
 	sensors.requestTemperatures(); // Get the temperature
