@@ -34,7 +34,7 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 /*
  - adaption to ATMEGA Studio 7.0 and changes for reliability: Marc Ruppert
  - added the possibility to send different RF Values based on "location" of sensor
- - added the possibility to use ds8b20 instead of dht22
+ - added the possibility to use ds18b20 instead of dht22
 */
 
 // Important: All needed config has to be done in the ConfigData.h! Look there first!
@@ -90,13 +90,48 @@ uint8_t ee_data_size;
 //Do we want to see trace for debugging purposes
 #define TRACE 0  // 0= trace off 1 = trace on
 
-void setup()
+
+void setAllPinInputLow()
 {
-	// WRITE ALL PINS AS INPUT LOW UNTIL NEEDED - DEFAULT STARTING STATE - ALLOWS LOW POWER SLEEP - PIN STATES CHANGED LOCALLY AS REQUIRED - MUST WRITE BACK TO INPUT LOW BEFORE SLEEP!
+	// WRITE ALL PINS AS INPUT LOW UNTIL NEEDED
+	// DEFAULT STARTING STATE 
+	// ALLOWS LOW POWER SLEEP 
+	// PIN STATES CHANGED LOCALLY AS REQUIRED 
+	// Important: MUST WRITE BACK TO INPUT LOW BEFORE SLEEP! 
 	for (byte i = 0; i <= A5; i++){
 		pinMode (i, INPUT);    // changed as per below
 		digitalWrite (i, LOW);  //     ditto
 	}
+}
+
+void ledOneBlink()
+{
+	// start led signal
+	pinMode(LedPin,OUTPUT);
+	digitalWrite(LedPin, HIGH);
+	delay(200);
+	digitalWrite(LedPin, LOW);
+	pinMode(LedPin,INPUT);
+}
+
+void pinPowerOn(const int PowerPin)
+{
+	pinMode(PowerPin,OUTPUT); // set the powerpin of the sensor to output
+	digitalWrite(PowerPin, HIGH); // give the powerpin 3.3 V
+}
+
+void pinPowerOff(const int PowerPin, const int SensorPin)
+{
+	pinMode(PowerPin,INPUT);
+	digitalWrite(PowerPin, LOW);
+	pinMode(SensorPin,INPUT);      //disable the internal pull up resistor enable by dht.begin
+	digitalWrite(SensorPin, LOW);  // MR for getting rid of the last 13mA
+}
+
+void setup()
+{
+	setAllPinInputLow();
+
 	if (TRACE) {
 		Serial.begin(9600);
 	}
@@ -110,17 +145,17 @@ void setup()
 	pinMode(SensorPowerPin,INPUT);
 	#endif
 	
+	// Set the Power of the transmitter to input;Result:  turn the transmitter off!
 	pinMode(EmitPowerPin,INPUT);
-	// start led signal
-	pinMode(LedPin,OUTPUT);
-	digitalWrite(LedPin, HIGH);
-	delay(200);
-	digitalWrite(LedPin, LOW);
-	pinMode(LedPin,INPUT);
+	
+	// Signal one blink with the led
+	ledOneBlink();
 	
 	SleepTimer = TimeToSleep; // Setup for long sleep, always hope the best!
 	// Launch traces for debugging purposes
 	trc("Start of the program");
+	
+	// calculate sizeof one EEPROM Date Unit!
 	ee_data_size = sizeof (ee_data);
 
 }
@@ -128,27 +163,20 @@ void setup()
 #if DHT22_use == 1
 void loop_dht22() // DHT22 only part of loop
 {
-	// send temp and hum
-	pinMode(SensorPowerPin,OUTPUT);
-	digitalWrite(SensorPowerPin, HIGH);
-	
+	pinPowerOn(SensorPowerPin);
 	delay(100); // added to give the DHT more time to startup, did not fix spontaneous temperature drops!
 	TempAndHum_DHT22();
-	digitalWrite(SensorPowerPin, LOW);
-	pinMode(SensorPin,INPUT);//disable the internal pull up resistor enable by dht.begin
-	digitalWrite(SensorPin, LOW); // MR for getting rid of the last 13mA
-	
-	pinMode(SensorPowerPin,INPUT);
+	pinPowerOff(SensorPowerPin, SensorPin);
 }
 #endif
 
 #if DS18B20_use == 1
 void loop_onewire()  // DS18B20 only part of loop
 {
-	pinMode(SensorPowerPin,OUTPUT); // set the powerpin of the sensor to output
-	digitalWrite(SensorPowerPin, HIGH); // give the powerpin 3.3 V
+	pinPowerOn(SensorPowerPin);
+	//pinMode(SensorPowerPin,OUTPUT); // set the powerpin of the sensor to output
+	//digitalWrite(SensorPowerPin, HIGH); // give the powerpin 3.3 V
 	delay(750); // 750 ms needed for temperature calculations!
-	//delay(1);
 	
 	sensors.begin(); //start up temp sensor
 	sensors.requestTemperatures(); // Get the temperature
@@ -201,11 +229,12 @@ void loop_onewire()  // DS18B20 only part of loop
 		}
 	}
 */
-	digitalWrite(SensorPowerPin, LOW);
-	pinMode(SensorPin,INPUT);//disable the internal pull up resistor 
-	digitalWrite(SensorPin, LOW); // MR for getting rid of the last 13mA
-	
-	pinMode(SensorPowerPin,INPUT);
+	pinPowerOff(SensorPowerPin, SensorPin);
+	//digitalWrite(SensorPowerPin, LOW);
+	//pinMode(SensorPin,INPUT);//disable the internal pull up resistor 
+	//digitalWrite(SensorPin, LOW); // MR for getting rid of the last 13mA
+	//
+	//pinMode(SensorPowerPin,INPUT);
 }
 #endif
 
@@ -463,6 +492,7 @@ void sendData(long dataTosend, long dataType){
 //	if (dataTosend == sum) { // original code
 	if (dataTosend >= sum) { 
 		// nothing to do sending error code
+		sum = dataTosend;
 		} else {
 		sum = dataTosend + dataType; // sending value added to topic offset
 	}
