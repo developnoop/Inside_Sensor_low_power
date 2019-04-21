@@ -5,7 +5,7 @@ Low power node  - ATMega328p program to send humidity, temperature and battery v
 
 This program enables to send sensor data with low power:
 - send sensor data to a 433Mhz gateway
-- with 3 AA batteries measured at 5V the current consumption in sleep mode is around 5uA
+- with 4 AA batteries measured at 5V the current consumption in sleep mode is around 5uA
 
 Contributors:
 - 1technophile
@@ -171,17 +171,20 @@ void loop_dht22() // DHT22 only part of loop
 #endif
 
 #if DS18B20_use == 1
+
+float initDS18B20()
+{
+	sensors.begin(); //start up temp sensor
+	sensors.requestTemperatures(); // Get the temperature
+	return sensors.getTempCByIndex(0);
+}
+
 void loop_onewire()  // DS18B20 only part of loop
 {
 	pinPowerOn(SensorPowerPin);
-	//pinMode(SensorPowerPin,OUTPUT); // set the powerpin of the sensor to output
-	//digitalWrite(SensorPowerPin, HIGH); // give the powerpin 3.3 V
 	delay(750); // 750 ms needed for temperature calculations!
-	
-	sensors.begin(); //start up temp sensor
-	sensors.requestTemperatures(); // Get the temperature
-	float temp=(sensors.getTempCByIndex(0));
-	temperature = temp;	
+
+	temperature = initDS18B20();	
 	
 	// Start up the library
 	sensors.begin();
@@ -190,18 +193,6 @@ void loop_onewire()  // DS18B20 only part of loop
 	// set the resolution to TEMPERATURE_PRECISION bit (Each Dallas/Maxim device is capable of several different resolutions)
 	sensors.setResolution(TEMPERATURE_PRECISION);
 
-/*	for(int i=0;i<numberOfDevices; i++) // go through all found devices and set the precision
-	{
-		// Search the wire for address
-		if(sensors.getAddress(tempDeviceAddress, i))
-		{
-			// set the resolution to TEMPERATURE_PRECISION bit (Each Dallas/Maxim device is capable of several different resolutions)
-			sensors.setResolution(tempDeviceAddress, TEMPERATURE_PRECISION);
-		} else { // no adress found?
-			SleepTimer = TimeToSleepError;
-		}
-	}    */
-	
 	sensors.requestTemperatures(); // Send the command to get temperatures
 	
 	temperature = sensors.getTempC(DEVICE_0);
@@ -216,34 +207,16 @@ void loop_onewire()  // DS18B20 only part of loop
 	
 	prepare_onewire_data(); // Use a simple function to copy the data
 	
-/*  // If i don't know which devices i have on the bus, use this approach, writes only in temperature and doesn't 
-	for(int i=0;i<numberOfDevices; i++)
-	{
-		// Search the wire for address
-		if(sensors.getAddress(tempDeviceAddress, i))
-		{
-			float tempC = sensors.getTempC(tempDeviceAddress);
-			temperature = tempC;
-			// TODO Sending of data and compare to old data not done yet for this approach!
-			prepare_onewire_data(); // Use a simple function to copy the data
-		}
-	}
-*/
 	pinPowerOff(SensorPowerPin, SensorPin);
-	//digitalWrite(SensorPowerPin, LOW);
-	//pinMode(SensorPin,INPUT);//disable the internal pull up resistor 
-	//digitalWrite(SensorPin, LOW); // MR for getting rid of the last 13mA
-	//
-	//pinMode(SensorPowerPin,INPUT);
 }
 #endif
 
 void loop()
 {
 	// begin emitting
-	
-	pinMode(EmitPowerPin,OUTPUT);
-	digitalWrite(EmitPowerPin, HIGH);
+	pinPowerOn(EmitPowerPin);
+	//pinMode(EmitPowerPin,OUTPUT);
+	//digitalWrite(EmitPowerPin, HIGH);
 	mySwitch.enableTransmit(EmitPin);  // Using Pin #6
 	mySwitch.setRepeatTransmit(15); //increase transmit repeat to avoid lost of rf sending
 
@@ -265,10 +238,11 @@ void loop()
 	
 	//deactivate the transmitter
 	mySwitch.disableTransmit();
-	pinMode(EmitPowerPin,INPUT);
-	digitalWrite(EmitPowerPin,LOW); // mr
-	pinMode(EmitPin,INPUT); //mr
-	digitalWrite(EmitPin,LOW); // mr
+	pinPowerOff(EmitPowerPin, EmitPin);
+//	pinMode(EmitPowerPin,INPUT);
+//	digitalWrite(EmitPowerPin,LOW); // mr
+//	pinMode(EmitPin,INPUT); //mr
+//	digitalWrite(EmitPin,LOW); // mr
 	
 
 	// sleep for x seconds
@@ -372,7 +346,12 @@ void measureTempAndHum_DHT22(){  // only for DHT22 usage!
 		if (isnan(humidity) || isnan(temperature) || (chk != DHTLIB_OK)) { // not a number read, so do another turn!
 			loop++;
 			} else {
-			break; // at least one correct value read, so exist while
+				if ((humidity > MAXHUMIDITY) || (temperature > MAXTEMPERATURE )) { // invalid value recieved, not catched by internal validation!
+					loop++;
+				}
+				else {
+					break; // at least one correct value read, so exist while
+				}
 		}
 		delay(2100);
 	}

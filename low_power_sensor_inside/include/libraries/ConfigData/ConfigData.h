@@ -2,10 +2,10 @@
 #define ConfigData_h
 
 // Here i comment out were the sensor will send its data from, this affects the sended RF values and in this version also the used sensors!
-//#define Sensor_Bath // Config Code for Sensor Bath?
+#define Sensor_Bath // Config Code for Sensor Bath?
 //#define Sensor_Balcony // Config Code for Sensor Balcony?
 //#define Sensor_MasterBed // Config Code for Sensor MasterBedroom?
-#define Sensor_Pond // Config Code for Sensor Pond?
+//#define Sensor_Pond // Config Code for Sensor Pond?
 
 // Which type of sensor do we want to use? This will be set now through the indirect through the location
 #define DS18B20_use     0 // 1 = used, 0 = unused; if sensor DS18B20 is used (only temperature values!!)
@@ -78,6 +78,10 @@ either at gateway level or better at domotic software level (example openhab)*/
 
 #if DHT22_use == 1
 #define DHTTYPE DHT22 // which of the DHT sensors do we use= 11 or 22?
+#define MAXTEMPERATURE 80.0
+#define MINTEMPERATURE -40.0
+#define MINHUMIDITY 0.0
+#define MAXHUMIDITY 100.0
 #endif
 
 // Define the used pins for the sensors, these are Arduino pin numbers which are != ATMEGA328P pin numbers!

@@ -35,8 +35,7 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
  ../include/libraries/ConfigData/ConfigData.h \
- ../include/libraries/OneWire/OneWire.h \
- ../include/libraries/DallasTemp/DallasTemperature.h \
+ ../include/libraries/DHTNEW/dhtnew.h \
  ..\include\libraries\Low-Power/LowPower.h \
  ..\include\libraries\rc-switch/RCSwitch.h
 
@@ -112,9 +111,7 @@ g:\develop\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\d
 
 ../include/libraries/ConfigData/ConfigData.h:
 
-../include/libraries/OneWire/OneWire.h:
-
-../include/libraries/DallasTemp/DallasTemperature.h:
+../include/libraries/DHTNEW/dhtnew.h:
 
 ..\include\libraries\Low-Power/LowPower.h:
 
