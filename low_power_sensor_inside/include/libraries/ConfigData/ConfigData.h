@@ -2,8 +2,8 @@
 #define ConfigData_h
 
 // Here i comment out were the sensor will send its data from, this affects the sended RF values and in this version also the used sensors!
-#define Sensor_Bath // Config Code for Sensor Bath?
-//#define Sensor_Balcony // Config Code for Sensor Balcony?
+//#define Sensor_Bath // Config Code for Sensor Bath?
+#define Sensor_Balcony // Config Code for Sensor Balcony?
 //#define Sensor_MasterBed // Config Code for Sensor MasterBedroom?
 //#define Sensor_Pond // Config Code for Sensor Pond?
 
